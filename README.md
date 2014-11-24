@@ -5,13 +5,12 @@ Visualise what's trending in your build process
 
 [![Buildtime trend](http://img.shields.io/badge/release-v0.1.2-blue.svg)](https://github.com/ruleant/buildtime-trend/releases/latest)
 [![Buildtime trend](http://img.shields.io/badge/dev-v0.2--dev-blue.svg)](https://github.com/ruleant/buildtime-trend/zipball/master)
-[![Build Status](https://travis-ci.org/ruleant/buildtime-trend.svg)](https://travis-ci.org/ruleant/buildtime-trend)
-[![Coverage Status](https://coveralls.io/repos/ruleant/buildtime-trend/badge.png?branch=master)](https://coveralls.io/r/ruleant/buildtime-trend?branch=master)
-[![Code Health](https://landscape.io/github/ruleant/buildtime-trend/master/landscape.png)](https://landscape.io/github/ruleant/buildtime-trend/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ruleant/buildtime-trend/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ruleant/buildtime-trend/?branch=master)
-[![Buildtime trend](http://img.shields.io/badge/buildtime-trend-blue.svg)](http://ruleant.github.io/buildtime-trend/buildtime-trend/)
+[![Build Status](https://travis-ci.org/buildtimetrend/python-client.svg)](https://travis-ci.org/buildtimetrend/python-client)
+[![Coverage Status](https://coveralls.io/repos/buildtimetrend/python-client/badge.png?branch=master)](https://coveralls.io/r/buildtimetrend/python-client?branch=master)
+[![Code Health](https://landscape.io/github/buildtimetrend/python-clientmaster/landscape.png)](https://landscape.io/github/buildtimetrend/ipython/client/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/buildtimetrend/python-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/buildtimetrend/python-client/?branch=master)
+[![Buildtime trend](http://img.shields.io/badge/buildtime-trend-blue.svg)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
 [![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/ruleant/buildtime-trend)
-[![status](https://sourcegraph.com/api/repos/github.com/ruleant/buildtime-trend/badges/status.png)](https://sourcegraph.com/github.com/ruleant/buildtime-trend)
 
 
 Features
