@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Buildtime Trend : Visualise what&#39;s trending in your build process">
+    <meta name="description" content="Buildtime trend : Gather data, analyse and visualise trends of build processes on Continuous Integration platforms">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Buildtime Trend</title>
+    <title>Buildtime trend</title>
   </head>
 
   <body>
@@ -16,14 +16,14 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/buildtimetrend/python-client">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/ruleant/buildtime-trend">View on GitHub</a>
 
-          <h1 id="project_title">Buildtime Trend</h1>
-          <h2 id="project_tagline">Visualise what&#39;s trending in your build process</h2>
+          <h1 id="project_title">Buildtime trend</h1>
+          <h2 id="project_tagline">Gather data, analyse and visualise trends of build processes on Continuous Integration platforms</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/buildtimetrend/python-client/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/buildtimetrend/python-client/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/ruleant/buildtime-trend/archive/v0.1.2.zip">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ruleant/buildtime-trend/archive/v0.1.2.tar.gz">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -31,21 +31,20 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
-<a id="buildtime-trend" class="anchor" href="#buildtime-trend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buildtime trend</h1>
+        <p><a href="https://github.com/ruleant/buildtime-trend/releases/latest"><img src="http://img.shields.io/badge/release-v0.1.2-blue.svg" alt="Buildtime trend"></a>
+<a href="https://github.com/ruleant/buildtime-trend/tarball/master"><img src="http://img.shields.io/badge/dev-v0.2--dev-blue.svg" alt="Buildtime trend"></a></p>
 
-<p>Visualise what's trending in your build process</p>
+<h2>
+<a id="example-of-build-stages-trend" class="anchor" href="#example-of-build-stages-trend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example of build stages trend</h2>
 
-<p><a href="https://github.com/ruleant/buildtime-trend/releases/latest"><img src="http://img.shields.io/badge/release-v0.1.2-blue.svg" alt="Buildtime trend"></a>
-<a href="https://github.com/ruleant/buildtime-trend/zipball/master"><img src="http://img.shields.io/badge/dev-v0.2--dev-blue.svg" alt="Buildtime trend"></a></p>
+<p><a href="http://ruleant.github.io/buildtime-trend/buildtime-trend/"><img src="http://ruleant.github.io/buildtime-trend/images/screenshot_buildtimetrend.png" alt="Graphs generated with Keen.io API"></a>
+Click the image for recently generated trends.</p>
 
 <h2>
 <a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
 
-<p>Visualise trends of build processes on Continuous Integration platforms by gathering and analysing build and timing data: </p>
-
 <ul>
-<li>Capture timing data from each stage in a build process</li>
+<li>Get timing data from each stage in a build process</li>
 <li>Store, analyse and create trends of the build process data
 
 <ul>
@@ -53,14 +52,14 @@
 <li>native mode : store data in xml format and use matplotlib to generate a chart (limited)</li>
 </ul>
 </li>
-<li>Available charts and metrics :
+<li>Current charts and trends
 
 <ul>
 <li>number of builds, successful and failed</li>
 <li>average build duration</li>
-<li>duration of individual build stages</li>
+<li>chart with build stage durations</li>
 <li>builds per branch</li>
-<li>build duration per time of day/day of week</li>
+<li>different time periods can be selected</li>
 </ul>
 </li>
 </ul>
@@ -85,16 +84,9 @@
 <a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
 
 <ul>
-<li>
-<code>keen</code> : client for storing build time data as events in Keen.io</li>
-<li>
-<code>python-dateutil</code> : for formatting datetime objects</li>
-<li>
-<code>lxml</code> : python wrapper for libxml2 and libxslt</li>
-<li>
-<code>pyyaml</code> : for parsing the config file in yaml format</li>
-<li>
-<code>matplotlib</code> (v1.2.0 or higher) : for drawing the <code>native</code> trend graph, can be omitted when only using Keen.io to generate charts. Stackplot requires version v1.2.0</li>
+<li>keen (client for storing build time data as events in Keen.io)</li>
+<li>lxml (python wrapper for libxml2 and libxslt)</li>
+<li>matplotlib v1.2.0 or higher (for drawing the <code>native</code> trend graph, can be omitted when only using Keen.io to generate charts. Stackplot requires version v1.2.0)</li>
 </ul>
 
 <h3>
@@ -117,8 +109,6 @@
 </ul>
 
 <pre><code>pip install keen
-pip install python-dateutil
-pip install pyyaml
 pip install lxml
 pip install 'matplotlib&gt;=1.2.0'
 </code></pre>
@@ -127,9 +117,9 @@ pip install 'matplotlib&gt;=1.2.0'
 <li>install as a Debian package :</li>
 </ul>
 
-<p><code>apt-get install python-lxml python-dateutil python-yaml</code></p>
+<p><code>apt-get install python-lxml</code></p>
 
-<p>Keen.io client and the required matplotlib version are not available as Debian packages, so look at the <code>pip</code> instructions above</p>
+<p>Keen.io client is not available as a Debian package, so look at the <code>pip</code> instructions above</p>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -160,7 +150,7 @@ Repeat this step as much as needed.</p>
 
 <p>which will analyse the logfile with timestamps and print out the results.
 The <code>analyse.sh</code> script will calculate the duration between the timestamps and add those to a file with the analysed data of previous builds.
-When the analysis script encounters the <code>end</code> timestamp, it will stop analysing the timestamp file and return the duration of the build stages. Possible event names ending the analysis are : <code>end</code>, <code>done</code>, <code>finished</code> or <code>completed</code>.</p>
+When the analysis script encounters the <code>end</code> timestamp, it will stop analysing the timestamp file.</p>
 
 <p>When Keen.io is enabled, the data will be sent to your Keen.io project for analysis.</p>
 
@@ -211,7 +201,7 @@ If Keen.io is enabled, <code>generate_trend.py</code> can be run without paramet
 <li>Look up the <code>project ID</code>, <code>Write Key</code> and <code>Master key</code> and assign them to environment variables :</li>
 <li><code>export KEEN_PROJECT_ID=&lt;Project ID&gt;</code></li>
 <li>
-<code>export KEEN_WRITE_KEY=&lt;Write Key&gt;</code> (when running on Travis CI, use <code>Master Key</code>, see below)</li>
+<code>export KEEN_WRITE_KEY=&lt;Write Key&gt;</code> (when running on Travis CI, use , see below)</li>
 <li><code>export KEEN_MASTER_KEY=&lt;Master Key&gt;</code></li>
 </ol>
 
@@ -331,34 +321,14 @@ after_script:
 <h2>
 <a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h2>
 
-<p>Website : <a href="http://ruleant.github.io/buildtime-trend">http://ruleant.github.io/buildtime-trend</a></p>
-
 <p>Follow us on <a href="https://twitter.com/buildtime_trend">Twitter</a>, <a href="https://github.com/ruleant/buildtime-trend">Github</a> and <a href="https://www.openhub.net/p/buildtime-trend">OpenHub</a>.</p>
-
-<h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
-
-<p>Copyright (C) 2014 Dieter Adriaenssens <a href="mailto:ruleant@users.sourceforge.net">ruleant@users.sourceforge.net</a></p>
-
-<p>This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-any later version.</p>
-
-<p>This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.</p>
-
-<p>You should have received a copy of the GNU General Public License
-along with this program.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Buildtime Trend maintained by <a href="https://github.com/buildtimetrend">buildtimetrend</a></p>
+        <p class="copyright">Buildtime trend maintained by <a href="https://github.com/ruleant">ruleant</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
