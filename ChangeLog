@@ -1,0 +1,32 @@
+v0.2 (not yet released)
+- issue #29 : run sync-buildtime-trend-with-gh-pages.sh in after_script
+- issue #28 : improve documentation on assigning Keen.io access keys
+- issue #30 : add timestamp event names that cause analysis to end
+- issue #19 : update Keen.io charts using query request refresh function
+- issue #26 : add chart displaying builds per time of day or day of week
+- issue #44 : Display buildtime averages of different timeframes in the same chart
+- replace print statements by logging methods
+- issue #34 : Parse Travis CI logfile to retrieve timing info
+- issue #24 : Assign Travis CI started and finished timestamps to build job
+- method keenio.keen_io_writable() renamed to keenio.keen_is_writable()
+- method keenio.keen_io_readable() renamed to keenio.keen_is_readable()
+- issue #55 : get_logger() returns buildtimetrend logger object
+- issue #15 : use Keen.io dashboard template for trends dashboard
+
+v0.1.2 (released on 6Aug2014)
+- improve Travis CI example : pull released version from git
+
+v0.1.1 (released on 5Aug2014)
+- improve Travis CI example : fix issue extracting the github tarball
+
+v0.1 (released on 4Aug2014)
+- Get timing data from each stage in a build process
+- Store, analyse and create trends of the build process data
+  - keen mode : send timing data to Keen.io and use the Keen.io API for analysis and visualisation
+  - native mode : store data in xml format and use matplotlib to generate a chart (limited)
+- Current charts and trends
+  - number of builds, succesful and failed
+  - average build duration
+  - chart with build stage durations
+  - builds per branch
+  - different time period can be selected

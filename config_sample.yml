@@ -1,0 +1,11 @@
+# Buildtime Trend general settings
+buildtimetrend:
+    project_name: "project_name or git repo"
+    mode_native: false
+    mode_keen: true
+
+# Keen.io connection settings
+keen:
+    project_id: "Keen.io project_id"
+    write_key: "Keen.io write_key"
+    read_key: "Keen.io read_key"
