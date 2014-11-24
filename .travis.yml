@@ -12,9 +12,7 @@ before_install:
   - source ./init.sh
 install:
   - timestamp.sh install
-  - CFLAGS="-O0" pip install -r requirements.txt
-  - CFLAGS="-O0" pip install -r requirements-native.txt
-  - CFLAGS="-O0" pip install -r requirements-tests.txt
+  - CFLAGS="-O0" pip install -e git+https://github.com/buildtimetrend/python-lib.git#egg=buildtimetrend
 script:
   - timestamp.sh tests
   - nosetests --with-coverage --cover-package=buildtimetrend
