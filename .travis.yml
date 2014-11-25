@@ -3,10 +3,10 @@ python:
   - "2.7"
 env:
   global:
-    - secure: "dR5giy/zGN6FmS4rlJ+RTSwKrbcMSxP9TJ4uW3eT7SpcAHBLPmW1/46vMAVGlHSqjdW0w+DxRjxrLMmo9g3ZZsqFExiXM19W2sbyAuwiAa2WLDTL3IdEdw/wCJm9W1usrRB/oGQjsBvkTzzXlobLXUTcADhUfBSj6XjMiduSAsA="
-    - secure: "Nm5w1CTqlWlX4qtpd+p+4NzoTV0/DMQHz4cNSAqYlufi/Cr9iQNiEk9Bsp/bh5UMe7EHTDztW5iABbzURhlOfHLVf3wkinATVX3ijzjPJcjVDyY4j2XU8oEszr2hqLl0u8VXUbQSJHzov75Ocuw6b0Oa334HLSyrDszqKaE5VEo="
-    - secure: "fa1MLxplPA2TDXrYYq5DCGA5PAAxXhz1FDyDwLSzIPayKzeefLod87nSBz7vsFsfqBastw8p6lXzBihRFHGy3o2HCWCOccd5GVDK50BdcccWTOvVHkgW1a99NgsMsRTjUlWnVcDe2PuVuzCRbnvSuA9ruKtcVhJguXihf1sWVw8="
-    - secure: "m0LrdbOoKpCXFNDD8NjFU5jeYcKabXJQPo/lR3CUnAB4J+q+76DA7dpHGPyYdW2QuC8hXE04hN4B+I6gu4iMKC+1cWdunYp2gSt+ZWtDDHLZ84nrKmhwiBoSVXZhPqm5Tggv+D5A7PPElqzih1IITaq64Fqh0aOb/jhXy4l6lnY="
+    - secure: "qzm4R0j3w4+kJPrPkJieVvxWjlQH8nBL3FvZffNbv5rWhp0GLpGVL+/tCMBQnoq6emNPm4IseqMxGaTzVTtOI7kPoWYDBA4x93ZmNTb+3jzQ3AOXH6S2oLXD+tqSn9gvPvsorGqw91mav6TN3yc7r6UF7EXRgITDC0PIn8aa/68="
+    - secure: "3KTuqS2hxWm/UGcqkHmQJU24dBb2XlexEzBINyI7XAJgqMefypgfuBxNMYZpF+ulpe7DdqSU+XNBykkoD0SuGCmD4gLuWzCJ4h8DrmqwHTAkVb6ScGIFaJEORyjPxEDLgJmQnXeo7Ub6i5syGFc37PfD7D71Ej6Z8I9KAjRgFok="
+    - secure: "pGm93vkvk1Xs1MjbtU9oe2/0pTiGCEV8fAON6YeiWdnaOPZTui/DSVpYDRBzfCuJf/WcsQJ9xEtq0nAp/TZgFghn/L9vmmjnaNNjs1jrk9K40YK9L4fn4xrkSromtAjDUa6mw+eMX2AP+XAOimeARvq66khpM4MibBohqYUaTu0="
+    - secure: "iPh3dbQkHiq88HL3owdENFj2ab57a1QKtikXqiVWMH+94n98SNDn+r3wVD5cf4N6UJBm3IskKsEn0DGxT4jbv3/gjh2pUK1ZKK2L0IVBMcSRSWQBkm4i37RwLlh3LDMDMeT+qkaHIBcjsux3imvr0d6RG7wE86f3RIxvDbZuNW0="
 before_install:
   # initialise buildtime-trend scripts
   - source ./init.sh
