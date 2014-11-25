@@ -1,2 +1,1 @@
-lxml
-matplotlib>=1.2.0
+git+https://github.com/buildtimetrend/python-lib.git#egg=buildtimetrend[native]
