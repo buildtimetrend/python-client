@@ -15,11 +15,7 @@ install:
   - CFLAGS="-O0" pip install git+https://github.com/buildtimetrend/python-lib.git#egg=buildtimetrend[native]
 script:
   - timestamp.sh tests
-  - nosetests --with-coverage --cover-package=buildtimetrend
-after_script:
-  - timestamp.sh coveralls
-  - coveralls
+  - nosetests
   # synchronise buildtime-trend result with gh-pages
-  - echo $TRAVIS_TEST_RESULT
   - timestamp.sh Done
   - sync-buildtime-trend-with-gh-pages.sh -l INFO -m native
