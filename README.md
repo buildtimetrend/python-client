@@ -36,9 +36,9 @@ The [latest version](https://github.com/ruleant/buildtime-trend/releases/latest)
 
 If you prefer to use git, several options are available :
 
-- development version : `git clone https://github.com/ruleant/buildtime-trend.git`
-- latest release : `git clone https://github.com/ruleant/buildtime-trend.git --branch release`
-- a specific release : `git clone https://github.com/ruleant/buildtime-trend.git --branch v0.1.2`
+- development version : `git clone https://github.com/buildtimetrend/python-client.git`
+- latest release : `git clone https://github.com/buildtimetrend/python-client.git --branch release`
+- a specific release : `git clone https://github.com/buildtimetrend/python-client.git --branch v0.1.2`
 
 Dependencies
 ------------
@@ -132,7 +132,7 @@ To analyse timestamps and store the analysed data :
 
 `analyse.sh -m native`
 
-See wiki for [data schema of the xml file](https://github.com/ruleant/buildtime-trend/wiki/Structure#data-file-in-native-mode).
+See wiki for [data schema of the xml file](https://github.com/buildtimetrend/python-lib/wiki/Structure#data-file-in-native-mode).
 
 To generate a chart from the data stored in the xml file :
 
@@ -156,7 +156,7 @@ Follow these steps to enable using Keen.io :
 
 If these environment variables are set, the scripts will detect this and use Keen.io to store data, do analysis and generate graphs.
 
-See wiki for [data schema of data sent to Keen.io](https://github.com/ruleant/buildtime-trend/wiki/Structure#data-structures-in-keen-mode).
+See wiki for [data schema of data sent to Keen.io](https://github.com/buildtimetrend/python-lib/wiki/Structure#data-structures-in-keen-mode).
 
 Visualise the trends (powered by Keen.io)
 -----------------------------------------
@@ -168,7 +168,7 @@ Folder `trends` contains all files necessary to display the generated trends.
 - Rename (or copy) `config_sample.js` to `config.js`
 - Edit `config.js` :
   - add `keen_project_id` (see Keen.io section above)
-  - add `keen_read_key` (see Keen.io section above, or generate a scoped read key with `get_read_key.py project_name` (`project_name` should be the same as the project_name used to store the data, this is usually the git-repo name, fe. `ruleant/buildtime-trend`)
+  - add `keen_read_key` (see Keen.io section above, or generate a scoped read key with `get_read_key.py project_name` (`project_name` should be the same as the project_name used to store the data, this is usually the git-repo name, fe. `buildtimetrend/python-client`)
   - add `project_name` : repo name is a good default, but it can be custom project name as well, this is only used as title on the webpage. It is not used to collect data.
 - Browse to `trends/index.html`, this should display the trends
 
@@ -242,18 +242,18 @@ To enable `native` mode, add `-m native` when calling `sync-buildtime-trend-with
 Bugs and feature requests
 -------------------------
 
-Please report bugs and add feature requests in the Github [issue tracker](https://github.com/ruleant/buildtime-trend/issues).
+Please report bugs and add feature requests in the Github [issue tracker](https://github.com/buildtimetrend/python-lib/issues).
 
 
 Credits
 -------
 
-For an overview of who contributed to create Buildtime trend, see [Credits](https://github.com/ruleant/buildtime-trend/wiki/Credits).
+For an overview of who contributed to create Buildtime trend, see [Credits](https://github.com/buildtimetrend/python-lib/wiki/Credits).
 
 Contact
 -------
 
-Website : http://ruleant.github.io/buildtime-trend
+Website : http://buildtimetrend.github.io/python-client
 
 Follow us on [Twitter](https://twitter.com/buildtime_trend), [Github](https://github.com/ruleant/buildtime-trend) and [OpenHub](https://www.openhub.net/p/buildtime-trend).
 
