@@ -43,7 +43,7 @@ If you prefer to use git, several options are available :
 Dependencies
 ------------
 
-- `buildtimetrend` : Buildtime Trend library
+- `buildtimetrend` : [Buildtime Trend library](https://github.com/buildtimetrend/python-lib)
 
 ### Dependency installation
 
