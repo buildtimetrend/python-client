@@ -37,7 +37,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
 from buildtimetrend.settings import Settings
-from buildtimetrend.settings import process_argv
 from buildtimetrend.build import Build
 from buildtimetrend.travis import TravisData
 from buildtimetrend.travis import load_travis_env_vars
@@ -56,11 +55,12 @@ def analyse(argv):
     '''
     settings = Settings()
 
-    # load Travis environment variables and save them in settings
+    # load environment variables and save them in settings
+    settings.load_env_vars()
     load_travis_env_vars()
 
     # process command line arguments
-    process_argv(argv)
+    settings.process_argv(argv)
 
     # read build data from timestamp CSV file
     build = Build(TIMESTAMP_FILE)

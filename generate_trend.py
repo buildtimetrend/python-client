@@ -29,7 +29,6 @@ import sys
 from buildtimetrend.tools import get_logger
 from buildtimetrend.travis import load_travis_env_vars
 from buildtimetrend.settings import Settings
-from buildtimetrend.settings import process_argv
 
 
 def generate_trend(argv):
@@ -38,11 +37,12 @@ def generate_trend(argv):
     '''
     settings = Settings()
 
-    # load Travis environment variables and save them in settings
+    # load environment variables and save them in settings
+    settings.load_env_vars()
     load_travis_env_vars()
 
     # process command line arguments
-    process_argv(argv)
+    settings.process_argv(argv)
 
     # run trend_keen() always,
     # if $KEEN_PROJECT_ID variable is set (checked later), it will be executed

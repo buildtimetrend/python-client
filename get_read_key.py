@@ -40,6 +40,9 @@ def get_read_key():
     settings = Settings()
     settings.load_config_file("config.yml")
 
+    # load environment variables and save them in settings
+    settings.load_env_vars()
+
     # get project name from argument
     if len(sys.argv) > 1:
         settings.set_project_name(sys.argv[1])

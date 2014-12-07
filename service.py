@@ -25,7 +25,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 import sys
 from buildtimetrend.travis import TravisData
 from buildtimetrend.settings import Settings
-from buildtimetrend.settings import process_argv
 from buildtimetrend.keenio import log_build_keen
 from buildtimetrend.keenio import keen_is_writable
 
@@ -38,8 +37,11 @@ def retrieve_and_store_data(argv):
     settings = Settings()
     settings.load_config_file("config_service.yml")
 
+    # load environment variables and save them in settings
+    settings.load_env_vars()
+
     # process command line arguments
-    process_argv(argv)
+    settings.process_argv(argv)
 
     build = settings.get_setting('build')
     if build is None:
