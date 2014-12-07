@@ -19,3 +19,7 @@ script:
   # synchronise buildtime-trend result with gh-pages
   - timestamp.sh Done
   - sync-buildtime-trend-with-gh-pages.sh -l INFO -m native
+notifications:
+  webhooks:
+  # trigger Buildtime Trend Service to parse Travis CI log and send result to Keen.io
+  - http://buildtimetrend-service.herokuapp.com/travis
