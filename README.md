@@ -77,14 +77,14 @@ Repeat this step as much as needed.
 
 When all build stages are finished, run
 
-`timestamp.sh end` (optional, `analyse.sh` adds it automatically)
+`timestamp.sh end` (optional, `analyse.py` adds it automatically)
 
 followed by
 
-`analyse.sh`
+`analyse.py`
 
 which will analyse the logfile with timestamps and print out the results.
-The `analyse.sh` script will calculate the duration between the timestamps and add those to a file with the analysed data of previous builds.
+The `analyse.py` script will calculate the duration between the timestamps and add those to a file with the analysed data of previous builds.
 When the analysis script encounters the `end` timestamp, it will stop analysing the timestamp file and return the duration of the build stages. Possible event names ending the analysis are : `end`, `done`, `finished` or `completed`.
 
 When Keen.io is enabled, the data will be sent to your Keen.io project for analysis.
@@ -111,7 +111,7 @@ To store data in xml, native mode needs to be enabled. The xml file is stored in
 
 To analyse timestamps and store the analysed data :
 
-`analyse.sh -m native`
+`analyse.py --mode=native`
 
 See wiki for [data schema of the xml file](https://github.com/buildtimetrend/python-lib/wiki/Structure#data-file-in-native-mode).
 
