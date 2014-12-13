@@ -36,6 +36,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import os
 import sys
+import time
 from buildtimetrend.settings import Settings
 from buildtimetrend.build import Build
 from buildtimetrend.travis import TravisData
@@ -49,7 +50,7 @@ TIMESTAMP_FILE = os.getenv('BUILD_TREND_LOGFILE', 'timestamps.csv')
 RESULT_FILE = os.getenv('BUILD_TREND_OUTPUTFILE', 'buildtimes.xml')
 
 
-def analyse(argv):
+def analyse(argv, timestamp):
     '''
     Analyse timestamp file
     '''
@@ -63,7 +64,7 @@ def analyse(argv):
     settings.process_argv(argv)
 
     # read build data from timestamp CSV file
-    build = Build(TIMESTAMP_FILE)
+    build = Build(TIMESTAMP_FILE, timestamp)
 
     # load build properties from settings
     build.load_properties_from_settings()
@@ -113,4 +114,4 @@ def log_build_native(build):
 if __name__ == "__main__":
     # only run analysis if timestampfile is present
     if check_file(TIMESTAMP_FILE):
-        analyse(sys.argv)
+        analyse(sys.argv, time.time())
