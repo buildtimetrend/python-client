@@ -48,6 +48,7 @@ from buildtimetrend.tools import get_logger
 # use parameter for timestamps file and check if file exists
 TIMESTAMP_FILE = os.getenv('BUILD_TREND_LOGFILE', 'timestamps.csv')
 RESULT_FILE = os.getenv('BUILD_TREND_OUTPUTFILE', 'buildtimes.xml')
+BUILD_TREND_INIT = os.getenv('BUILD_TREND_INIT', '0')
 
 
 def analyse(argv, timestamp):
@@ -112,6 +113,11 @@ def log_build_native(build):
 
 
 if __name__ == "__main__":
+    # check if Buildtime trend is initialised
+    if BUILD_TREND_INIT is not "1":
+        get_logger().error(
+            "Buildtime-trend is not initialised, first run 'source init.sh'."
+        )
     # only run analysis if timestampfile is present
-    if check_file(TIMESTAMP_FILE):
+    elif check_file(TIMESTAMP_FILE):
         analyse(sys.argv, time.time())
