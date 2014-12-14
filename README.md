@@ -77,15 +77,13 @@ Repeat this step as much as needed.
 
 When all build stages are finished, run
 
-`timestamp.sh end` (optional, `analyse.py` adds it automatically)
-
-followed by
-
 `analyse.py`
 
 which will analyse the logfile with timestamps and print out the results.
 The `analyse.py` script will calculate the duration between the timestamps and add those to a file with the analysed data of previous builds.
 When the analysis script encounters the `end` timestamp, it will stop analysing the timestamp file and return the duration of the build stages. Possible event names ending the analysis are : `end`, `done`, `finished` or `completed`.
+
+Optionally `timestamp.sh end` can be run before `analyse.py`, but `analyse.py` adds the end timestamp automatically. The `end` timestamp can be useful if `analyse.py` is not immediately run after the monitored build process finishes.
 
 When Keen.io is enabled, the data will be sent to your Keen.io project for analysis.
 
@@ -165,7 +163,7 @@ and synchronise it with your gh-pages branch.
 
 All you need is a github repo, a Travis CI account for your repo and a gh-pages branch to publish the results.
 
-You also need to create an encrypted GH_TOKEN to get write access to your repo (publish results on gh-pages branch) :
+You also need to create an encrypted `GH_TOKEN` to get write access to your repo (publish results on gh-pages branch) :
 - [create](https://github.com/settings/applications) the access token for your github repo, `repo` scope is sufficient
 - encrypt the environment variable using the [Travis CI command line tool](http://docs.travis-ci.com/user/encryption-keys/) :
 `travis encrypt GH_TOKEN=github_access_token`
