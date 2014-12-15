@@ -16,6 +16,7 @@ v0.2 (not yet released)
 - issue #56 : set projectname with a parameter when using generate_trend.py
 - change license to GNU Affero General Public License v3 or later (AGPLv3+)
 - removed analyse.sh, directly use analyse.py instead
+- renamed 'trends' folder to 'dashboard'
 
 v0.1.2 (released on 6Aug2014)
 - improve Travis CI example : pull released version from git

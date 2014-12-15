@@ -58,8 +58,8 @@ def trend_native():
     '''
     from buildtimetrend.trend import Trend
     # use parameter for timestamps file and check if file exists
-    result_file = os.getenv('BUILD_TREND_OUTPUTFILE', 'trends/buildtimes.xml')
-    chart_file = os.getenv('BUILD_TREND_TRENDFILE', 'trends/trend.png')
+    result_file = os.getenv('BUILD_TREND_OUTPUTFILE', 'dashboard/buildtimes.xml')
+    chart_file = os.getenv('BUILD_TREND_TRENDFILE', 'dashboard/trend.png')
 
     trend = Trend()
     if trend.gather_data(result_file):
