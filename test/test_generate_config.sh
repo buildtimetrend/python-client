@@ -29,7 +29,7 @@ mode=keen
 
 # set enviroment variable for the analysis result file
 export BUILD_TREND_CONFIGFILE=/tmp/config.js
-export BUILD_TREND_SAMPLE_CONFIGFILE=$BUILD_TREND_TRENDS_DIR/config_sample.js
+export BUILD_TREND_SAMPLE_CONFIGFILE=$BUILD_TREND_DASHBOARD_DIR/config_sample.js
 
 # generate trend
 generate_trend.py --mode="$mode"
