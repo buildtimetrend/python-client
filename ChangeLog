@@ -15,8 +15,8 @@ v0.2 (not yet released)
 - issue #58 : split project in a client (current project) and library, see https://github.com/buildtimetrend/python-lib
 - issue #56 : set projectname with a parameter when using generate_trend.py
 - change license to GNU Affero General Public License v3 or later (AGPLv3+)
-- removed analyse.sh, directly use analyse.py instead
-- renamed 'trends' folder to 'dashboard'
+- remove analyse.sh, directly use analyse.py instead
+- rename 'trends' folder to 'dashboard'
 - rename environment variable BUILD_TREND_TRENDS_DIR to BUILD_TREND_DASHBOARD_DIR
 
 v0.1.2 (released on 6Aug2014)
