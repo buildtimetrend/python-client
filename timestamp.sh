@@ -45,7 +45,7 @@ done
 shift $(( OPTIND - 1 ))
 
 # generate timestamp and log it
-TIMESTAMP=$(date +%s)
+TIMESTAMP=$(date +%s.%N)
 if [ $VERBOSE -gt 0 ]; then
   echo "Timestamp $1 : $TIMESTAMP"
 fi

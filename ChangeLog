@@ -18,6 +18,7 @@ v0.2 (not yet released)
 - remove analyse.sh, directly use analyse.py instead
 - rename 'trends' folder to 'dashboard'
 - rename environment variable BUILD_TREND_TRENDS_DIR to BUILD_TREND_DASHBOARD_DIR
+- issue #33 : Add nanoseconds when logging a timestamp
 
 v0.1.2 (released on 6Aug2014)
 - improve Travis CI example : pull released version from git
