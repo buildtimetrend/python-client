@@ -41,7 +41,8 @@ def retrieve_and_store_data(argv):
     settings.load_env_vars()
 
     # process command line arguments
-    settings.process_argv(argv)
+    if settings.process_argv(argv) is None:
+        sys.exit()
 
     build = settings.get_setting('build')
     if build is None:

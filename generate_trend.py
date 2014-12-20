@@ -42,7 +42,8 @@ def generate_trend(argv):
     load_travis_env_vars()
 
     # process command line arguments
-    settings.process_argv(argv)
+    if settings.process_argv(argv) is None:
+        sys.exit()
 
     # run trend_keen() always,
     # if $KEEN_PROJECT_ID variable is set (checked later), it will be executed

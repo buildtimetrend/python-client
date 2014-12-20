@@ -62,7 +62,8 @@ def analyse(argv, timestamp):
     load_travis_env_vars()
 
     # process command line arguments
-    settings.process_argv(argv)
+    if settings.process_argv(argv) is None:
+        sys.exit()
 
     # read build data from timestamp CSV file
     build = Build(TIMESTAMP_FILE, timestamp)
