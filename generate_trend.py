@@ -28,6 +28,7 @@ import os
 import sys
 from buildtimetrend.tools import get_logger
 from buildtimetrend.settings import Settings
+from buildtimetrend.travis import load_travis_env_vars
 
 
 def generate_trend(argv):
