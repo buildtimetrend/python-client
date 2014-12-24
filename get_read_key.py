@@ -33,22 +33,25 @@ from buildtimetrend.settings import Settings
 import sys
 
 
-def get_read_key():
+def get_read_key(argv):
     '''
     Generate a read key for the project and print that key
     '''
     settings = Settings()
-    settings.load_config_file("config.yml")
 
-    # load environment variables and save them in settings
-    settings.load_env_vars()
+    # load settings from config file, env_var and cli parameters
+    args = settings.load_settings(argv)
+
+    # exit script if processing cli parameters failed (result = None)
+    if args is None:
+        return
 
     # get project name from argument
-    if len(sys.argv) > 1:
-        settings.set_project_name(sys.argv[1])
+    if len(args) > 0:
+        settings.set_project_name(args[0])
 
     # generate a read key
     print keen_io_generate_read_key(settings.get_project_name())
 
 if __name__ == "__main__":
-    get_read_key()
+    get_read_key(sys.argv)

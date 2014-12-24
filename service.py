@@ -33,16 +33,11 @@ def retrieve_and_store_data(argv):
     '''
     Retrieve timing data from Travis CI, parse it and store it in Keen.io
     '''
-
     settings = Settings()
-    settings.load_config_file("config_service.yml")
 
-    # load environment variables and save them in settings
-    settings.load_env_vars()
-
-    # process command line arguments
-    if settings.process_argv(argv) is None:
-        sys.exit()
+    # load settings from config file, env_var and cli parameters
+    if settings.load_settings(argv, "config_service.yml") is None:
+        return
 
     build = settings.get_setting('build')
     if build is None:

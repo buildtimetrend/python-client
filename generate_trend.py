@@ -27,7 +27,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 import os
 import sys
 from buildtimetrend.tools import get_logger
-from buildtimetrend.travis import load_travis_env_vars
 from buildtimetrend.settings import Settings
 
 
@@ -37,13 +36,12 @@ def generate_trend(argv):
     '''
     settings = Settings()
 
-    # load environment variables and save them in settings
-    settings.load_env_vars()
-    load_travis_env_vars()
+    # load settings from config file, env_var and cli parameters
+    if settings.load_settings(argv) is None:
+        return
 
-    # process command line arguments
-    if settings.process_argv(argv) is None:
-        sys.exit()
+    # load Travis CI environment variables
+    load_travis_env_vars()
 
     # run trend_keen() always,
     # if $KEEN_PROJECT_ID variable is set (checked later), it will be executed
