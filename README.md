@@ -8,7 +8,11 @@ Visualise what's trending in your build process
 [![Build Status](https://travis-ci.org/buildtimetrend/python-client.svg)](https://travis-ci.org/buildtimetrend/python-client)
 [![Code Health](https://landscape.io/github/buildtimetrend/python-client/master/landscape.png)](https://landscape.io/github/buildtimetrend/python-client/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/buildtimetrend/python-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/buildtimetrend/python-client/?branch=master)
-[![Buildtime trend](http://img.shields.io/badge/buildtime-trend-blue.svg)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
+
+[![Buildtime trend](https://buildtimetrend-service.herokuapp.com/badge/buildtimetrend/python-client/latest)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
+[![Total builds](https://buildtimetrend-service.herokuapp.com/badge/buildtimetrend/python-client/builds/month)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
+[![Percentage passed build jobs](https://buildtimetrend-service.herokuapp.com/badge/buildtimetrend/python-client/passed/month)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
+
 [![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg)](http://stackshare.io/ruleant/buildtime-trend)
 
 
