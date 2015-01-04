@@ -69,6 +69,8 @@ function updateCharts(periodName) {
     // get Update Period settings
     var updatePeriod = getUpdatePeriod(periodName);
 
+    updateBadgeUrl(updatePeriod.name);
+
     var i;
 
     // update all interval based queries
@@ -449,7 +451,7 @@ function updateTitle() {
 }
 
 // Initialize badge url
-function updateBadgeUrl() {
+function updateBadgeUrl(periodName) {
     // check if config.serviceUrl is set by something else than the default value
     if (config.serviceUrl == null || config.serviceUrl == 'service_url') {
         config.serviceUrl = 'https://buildtimetrend-service.herokuapp.com/'
@@ -459,7 +461,17 @@ function updateBadgeUrl() {
 
     // add repo
     if (config.repoName != null && config.repoName != 'repo_name') {
-        badgeUrl += config.repoName + '/latest';
+        badgeUrl += config.repoName;
+
+        var updatePeriod = getUpdatePeriod(periodName);
+        var interval = updatePeriod.name;
+
+        // add interval
+        if (interval == null || interval == 'day') {
+            badgeUrl += '/latest';
+        } else {
+            badgeUrl += '/avg/' + interval;
+        }
     }
 
     // change badge url
