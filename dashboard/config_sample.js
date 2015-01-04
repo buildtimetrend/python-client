@@ -4,5 +4,7 @@ var keenConfig = {
 };
 
 var config = {
-    projectName: "project_name"
+    projectName: "project_name" // descriptive project name (used in the title)
+    repoName: "repo_name" // repo name, fe. "buildtimetrend/python-client"
+    serviceUrl: "service_url" // url to Buildtime Trend as a Service, fe. https://buildtimetrend-service.herokuapp.com/
 };
