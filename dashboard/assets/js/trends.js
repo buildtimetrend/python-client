@@ -442,12 +442,17 @@ function initCharts() {
 
 // add project name to title
 function updateTitle() {
+    var title = 'Buildtime Trend';
+
     // check if config.projectName is set
-    if (config.projectName !== null || config.projectName == 'project_name') {
-        var title = 'Build trends of project ' + htmlEntities(config.projectName);
-        document.getElementById("title").innerHTML = title;
-        document.getElementsByTagName("title")[0].innerHTML = title;
+    if (config.projectName != null && config.projectName != 'project_name') {
+        title = 'Build trends of project ' + htmlEntities(config.projectName);
+    } else if (config.repoName != null && config.repoName != 'repo_name') {
+        title = 'Build trends of project ' + htmlEntities(config.repoName);
     }
+
+    document.getElementById("title").innerHTML = title;
+    document.getElementsByTagName("title")[0].innerHTML = title;
 }
 
 // Initialize badge url
