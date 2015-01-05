@@ -483,6 +483,14 @@ function updateBadgeUrl(periodName) {
     $("#badge-url").attr('src', htmlEntities(badgeUrl));
 }
 
+// Initialize link urls
+function initLinks() {
+    // check if config.serviceUrl is set by something else than the default value
+    if (config.websiteUrl != null && config.websiteUrl != 'website_url') {
+        $("#title").attr('href', htmlEntities(config.websiteUrl));
+    }
+}
+
 // escape html characters
 // inspired by http://css-tricks.com/snippets/javascript/htmlentities-for-javascript/
 function htmlEntities(str) {
@@ -525,6 +533,7 @@ function mergeSeries(data, index_captions, value_fieldname, series_captions) {
 // initialize page
 $(document).ready(function() {
     updateTitle();
+    initLinks();
     updateBadgeUrl();
     initCharts();
 });
