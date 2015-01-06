@@ -2,7 +2,7 @@
 /**
  * Analyse and visualise trend data using the Keen.io API.
  *
- * Copyright (C) 2014 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ * Copyright (C) 2014-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
  *
  * This file is part of buildtimetrend/python-client
  * <https://github.com/buildtimetrend/python-client/>
@@ -488,6 +488,11 @@ function initLinks() {
     // check if config.serviceUrl is set by something else than the default value
     if (config.websiteUrl != null && config.websiteUrl != 'website_url') {
         $("#title").attr('href', htmlEntities(config.websiteUrl));
+    }
+
+    if (config.repoName != null && config.repoName != 'repo_name') {
+        repoUrl = "https://github.com/" + config.repoName;
+        $("#repo-url").attr('href', htmlEntities(repoUrl));
     }
 }
 
