@@ -489,6 +489,11 @@ function initLinks() {
     if (config.websiteUrl != null && config.websiteUrl != 'website_url') {
         $("#title").attr('href', htmlEntities(config.websiteUrl));
     }
+
+    if (config.repoName != null && config.repoName != 'repo_name') {
+        repoUrl = "https://github.com/" + config.repoName;
+        $("#repo-url").attr('href', htmlEntities(repoUrl));
+    }
 }
 
 // escape html characters
