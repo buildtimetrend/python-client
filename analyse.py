@@ -15,7 +15,7 @@ Usage :
     --result=<build_result> : fe. passed, failed, errored, ...
     --mode=<storage_mode> : fe. native, keen (default)
 
-Copyright (C) 2014 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+Copyright (C) 2014-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
 
 This file is part of buildtimetrend/python-client
 <https://github.com/buildtimetrend/python-client/>

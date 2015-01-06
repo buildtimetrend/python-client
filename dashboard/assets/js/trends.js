@@ -2,7 +2,7 @@
 /**
  * Analyse and visualise trend data using the Keen.io API.
  *
- * Copyright (C) 2014 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ * Copyright (C) 2014-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
  *
  * This file is part of buildtimetrend/python-client
  * <https://github.com/buildtimetrend/python-client/>
