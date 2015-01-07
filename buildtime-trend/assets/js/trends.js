@@ -108,7 +108,7 @@ function initCharts() {
         // create query
         var queryTotalBuilds = new Keen.Query("count", {
             eventCollection: "builds",
-            timeframe: keenTimeframe,
+            timeframe: keenTimeframe
         });
         queriesTimeframe.push(queryTotalBuilds);
 
@@ -459,7 +459,7 @@ function updateTitle() {
 function updateBadgeUrl(periodName) {
     // check if config.serviceUrl is set by something else than the default value
     if (config.serviceUrl == null || config.serviceUrl == 'service_url') {
-        config.serviceUrl = 'https://buildtimetrend-service.herokuapp.com/'
+        config.serviceUrl = 'https://buildtimetrend-service.herokuapp.com/';
     }
 
     var badgeUrl = config.serviceUrl + '/badge/';
@@ -527,8 +527,8 @@ function mergeSeries(data, index_captions, value_fieldname, series_captions) {
         timeframe_caption = series_captions[j];
         // copy query data into the populated array
         for (i = 0; i < timeframe_result.length; i++) {
-            index = parseInt(timeframe_result[i][value_fieldname])
-            chart_data[index][timeframe_caption] = timeframe_result[i]["result"];
+            index = parseInt(timeframe_result[i][value_fieldname], 10);
+            chart_data[index][timeframe_caption] = timeframe_result[i].result;
         }
     }
 
