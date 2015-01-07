@@ -20,6 +20,7 @@ v0.2 (not yet released)
 - rename environment variable BUILD_TREND_TRENDS_DIR to BUILD_TREND_DASHBOARD_DIR
 - issue #33 : Add nanoseconds when logging a timestamp
 - issue #17 : add parameterized (repo name, interval) build status badge to dashboard
+- issue #18 : link to project website and project repo on dashboard
 
 v0.1.2 (released on 6Aug2014)
 - improve Travis CI example : pull released version from git

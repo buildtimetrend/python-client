@@ -490,9 +490,14 @@ function initLinks() {
         $("#title").attr('href', htmlEntities(config.websiteUrl));
     }
 
+    // link to project repo and display icon
     if (config.repoName != null && config.repoName != 'repo_name') {
         repoUrl = "https://github.com/" + config.repoName;
         $("#repo-url").attr('href', htmlEntities(repoUrl));
+        $("#repo-url").show();
+    } else {
+        // hide repo icon
+        $("#repo-url").hide();
     }
 }
 
