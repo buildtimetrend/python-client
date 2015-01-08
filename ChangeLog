@@ -12,7 +12,9 @@ v0.2 (not yet released)
 - method keenio.keen_io_readable() renamed to keenio.keen_is_readable()
 - issue #55 : get_logger() returns buildtimetrend logger object
 - issue #15 : use Keen.io dashboard template for trends dashboard
-- issue #58 : split project in a client (current project) and library, see https://github.com/buildtimetrend/python-lib
+- issue #58 : split project in a client (current project), library
+(https://github.com/buildtimetrend/python-lib) and dashboard
+(https://github.com/buildtimetrend/dashboard)
 - issue #56 : set projectname with a parameter when using generate_trend.py
 - change license to GNU Affero General Public License v3 or later (AGPLv3+)
 - remove analyse.sh, directly use analyse.py instead

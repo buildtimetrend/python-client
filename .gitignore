@@ -1,6 +1,7 @@
 timestamps.csv
 buildtimes.xml
 /buildtimetrend
+/dashboard
 trend.png
 config.js
 config.yml
