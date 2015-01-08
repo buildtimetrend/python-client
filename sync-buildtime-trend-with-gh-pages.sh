@@ -56,6 +56,19 @@ shift $(( OPTIND - 1 ))
 # and if the initialise script (`source init.sh`) was run first
 if [ "$TRAVIS" == "true" ] && [ "$BUILD_TREND_INIT" == "1" ]; then
 
+  echo -e "Get Buildtime Trend Dashboard"
+
+  BUILD_TREND_DASHBOARD_DIR=$HOME/dashboard
+
+  # clone or update dashboard dir
+  if [ -d "$BUILD_TREND_DASHBOARD_DIR" ]; then
+    cd "$BUILD_TREND_DASHBOARD_DIR"
+    git pull --rebase
+  else
+    git clone --quiet https://github.com//buildtime/dashboard.git "$BUILD_TREND_DASHBOARD_DIR" > /dev/null
+    cd "$BUILD_TREND_DASHBOARD_DIR"
+  fi
+
   echo -e "Start synchronising buildtime-trend results on gh-pages..."
   
   GH_PAGES=$HOME/gh-pages
