@@ -4,3 +4,5 @@ checks:
     python:
         code_rating: true
         duplicate_code: true
+tools:
+    js_hint: true
