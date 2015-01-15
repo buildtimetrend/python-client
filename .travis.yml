@@ -1,6 +1,8 @@
 language: python
 python:
   - "2.7"
+# enable building on container-based infrastructure
+sudo: false
 env:
   global:
     - secure: "qzm4R0j3w4+kJPrPkJieVvxWjlQH8nBL3FvZffNbv5rWhp0GLpGVL+/tCMBQnoq6emNPm4IseqMxGaTzVTtOI7kPoWYDBA4x93ZmNTb+3jzQ3AOXH6S2oLXD+tqSn9gvPvsorGqw91mav6TN3yc7r6UF7EXRgITDC0PIn8aa/68="
