@@ -75,9 +75,9 @@ def trend_keen():
     '''
     Setup trends using Keen.io API
     '''
-    from buildtimetrend.keenio import generate_overview_config_file
+    from buildtimetrend.keenio import generate_dashboard_config_file
 
-    generate_overview_config_file(Settings().get_project_name())
+    generate_dashboard_config_file(Settings().get_project_name())
 
 if __name__ == "__main__":
     generate_trend(sys.argv)
