@@ -31,6 +31,60 @@ var CAPTION_LAST_YEAR = "Last year";
 
 var TIMEZONE_SECS = "UTC"; // named timezone or offset in seconds, fe. GMT+1 = 3600
 
+// arrays with queries and query request to update
+var queriesInterval = [];
+var queriesTimeframe = [];
+var queryRequests = [];
+
+/**
+ * Checks if a variable is defined and not null.
+ */
+function isEmpty(varName) {
+   return (varName === undefined || varName === null);
+}
+
+/**
+ * Escape html characters
+ * inspired by http://css-tricks.com/snippets/javascript/htmlentities-for-javascript/
+ */
+function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
+/**
+ * Merge data from several series, with identical X-axis labels
+ *
+ * Parameters :
+ * - data : Keen.io query results
+ * - indexCaptions : Captions for the index of the values
+ * - valueFieldname : name of the value field in the query result array
+ * - seriesCaptions : captions for the data series
+ */
+function mergeSeries(data, indexCaptions, valueFieldname, seriesCaptions) {
+    var chartData = [];
+    // create and populate data array
+    var i, j;
+    for (i = 0; i < indexCaptions.length; i++) {
+        chartData[i]={caption: indexCaptions[i]};
+        // populate all series
+        for (j = 0; j < seriesCaptions.length; j++) {
+            chartData[i][seriesCaptions[j]] = 0;
+        }
+    }
+    // loop over all query result sets
+    for (j = 0; j < data.length; j++) {
+        var timeframeResult = data[j].result;
+        var timeframeCaption = seriesCaptions[j];
+        // copy query data into the populated array
+        for (i = 0; i < timeframeResult.length; i++) {
+            var index = parseInt(timeframeResult[i][valueFieldname], 10);
+            chartData[index][timeframeCaption] = timeframeResult[i].result;
+        }
+    }
+
+    return chartData;
+}
+
 function getUpdatePeriod(period) {
     var keenTimeframe, keenInterval;
 
@@ -62,10 +116,33 @@ function getUpdatePeriod(period) {
     };
 }
 
-// arrays with queries and query request to update
-var queriesInterval = [];
-var queriesTimeframe = [];
-var queryRequests = [];
+// Initialize badge url
+function updateBadgeUrl(periodName) {
+    // check if config.serviceUrl is set by something else than the default value
+    if (isEmpty(config.serviceUrl) || config.serviceUrl === 'service_url') {
+        config.serviceUrl = 'https://buildtimetrend-service.herokuapp.com/';
+    }
+
+    var badgeUrl = config.serviceUrl + '/badge/';
+
+    // add repo
+    if (!isEmpty(config.repoName) && config.repoName !== 'repo_name') {
+        badgeUrl += config.repoName;
+
+        var updatePeriod = getUpdatePeriod(periodName);
+        var interval = updatePeriod.name;
+
+        // add interval
+        if (isEmpty(interval) || interval === 'day') {
+            badgeUrl += '/latest';
+        } else {
+            badgeUrl += '/avg/' + interval;
+        }
+    }
+
+    // change badge url
+    $("#badge-url").attr('src', htmlEntities(badgeUrl));
+}
 
 function updateCharts(periodName) {
     // get Update Period settings
@@ -101,8 +178,8 @@ function initCharts() {
     // update interval selection box
     $('#intervals').val(updatePeriod.name);
 
-    // hide title
-    document.getElementById("timeframe_title").style.display = "none";
+    // hide timeframe title
+    $('#timeframe_title').hide();
 
     // visualization code goes here
     Keen.ready(function() {
@@ -345,14 +422,16 @@ function initCharts() {
                     queryAvgBuildtimeHourLastYear],
                 function()
         {
-            timeframeCaptions = [CAPTION_LAST_WEEK, CAPTION_LAST_MONTH, CAPTION_LAST_YEAR];
-            indexCaptions = [];
+            var timeframeCaptions = [CAPTION_LAST_WEEK, CAPTION_LAST_MONTH, CAPTION_LAST_YEAR];
+            var indexCaptions = [];
+            
             // populate array with an entry per hour
+            var i;
             for (i = 0; i < 24; i++) {
                 indexCaptions[i]= String(i) + ":00";
             }
 
-            chart_data = mergeSeries(
+            var chartData = mergeSeries(
                 this.data,
                 indexCaptions,
                 "build.started_at.hour_24",
@@ -361,7 +440,7 @@ function initCharts() {
 
             // draw chart
             window.chart = new Keen.Visualization(
-                {result: chart_data},
+                {result: chartData},
                 document.getElementById("chart_avg_buildtime_hour"),
                 {
                     chartType: "columnchart",
@@ -430,9 +509,9 @@ function initCharts() {
                     queryAvgBuildtimeWeekDayLastYear],
                 function()
         {
-            timeframeCaptions = [CAPTION_LAST_WEEK, CAPTION_LAST_MONTH, CAPTION_LAST_YEAR];
-            indexCaptions = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-            chart_data = mergeSeries(
+            var timeframeCaptions = [CAPTION_LAST_WEEK, CAPTION_LAST_MONTH, CAPTION_LAST_YEAR];
+            var indexCaptions = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            var chartData = mergeSeries(
                 this.data,
                 indexCaptions,
                 "build.started_at.day_of_week",
@@ -441,7 +520,7 @@ function initCharts() {
 
             // draw chart
             window.chart = new Keen.Visualization(
-                {result: chart_data},
+                {result: chartData},
                 document.getElementById("chart_avg_buildtime_weekday"),
                 {
                     chartType: "columnchart",
@@ -458,12 +537,12 @@ function initCharts() {
 
 // add project name to title
 function updateTitle() {
-    var title = 'Buildtime Trends';
+    var title = 'Buildtime Trend as a Service';
 
     // check if config.projectName is set
-    if (config.projectName != null && config.projectName != 'project_name') {
+    if (!isEmpty(config.projectName) && config.projectName !== 'project_name') {
         title = htmlEntities(config.projectName);
-    } else if (config.repoName != null && config.repoName != 'repo_name') {
+    } else if (!isEmpty(config.repoName) && config.repoName !== 'repo_name') {
         title = htmlEntities(config.repoName);
     }
 
@@ -471,44 +550,16 @@ function updateTitle() {
     document.getElementsByTagName("title")[0].innerHTML = "Buildtime Trend - " + title;
 }
 
-// Initialize badge url
-function updateBadgeUrl(periodName) {
-    // check if config.serviceUrl is set by something else than the default value
-    if (config.serviceUrl == null || config.serviceUrl == 'service_url') {
-        config.serviceUrl = 'https://buildtimetrend-service.herokuapp.com/';
-    }
-
-    var badgeUrl = config.serviceUrl + '/badge/';
-
-    // add repo
-    if (config.repoName != null && config.repoName != 'repo_name') {
-        badgeUrl += config.repoName;
-
-        var updatePeriod = getUpdatePeriod(periodName);
-        var interval = updatePeriod.name;
-
-        // add interval
-        if (interval == null || interval == 'day') {
-            badgeUrl += '/latest';
-        } else {
-            badgeUrl += '/avg/' + interval;
-        }
-    }
-
-    // change badge url
-    $("#badge-url").attr('src', htmlEntities(badgeUrl));
-}
-
 // Initialize link urls
 function initLinks() {
     // check if config.serviceUrl is set by something else than the default value
-    if (config.websiteUrl != null && config.websiteUrl != 'website_url') {
+    if (!isEmpty(config.websiteUrl) && config.websiteUrl !== 'website_url') {
         $("#title").attr('href', htmlEntities(config.websiteUrl));
     }
 
     // link to project repo and display icon
-    if (config.repoName != null && config.repoName != 'repo_name') {
-        repoUrl = "https://github.com/" + config.repoName;
+    if (!isEmpty(config.repoName) && config.repoName !== 'repo_name') {
+        var repoUrl = "https://github.com/" + config.repoName;
         $("#repo-url").attr('href', htmlEntities(repoUrl));
         $("#repo-url").show();
     } else {
@@ -517,43 +568,37 @@ function initLinks() {
     }
 }
 
-// escape html characters
-// inspired by http://css-tricks.com/snippets/javascript/htmlentities-for-javascript/
-function htmlEntities(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
-}
+// Populate project menu
+function populateProjects() {
+    // check if config.projectList is defined
+    if (!isEmpty(config.projectList) &&
+      $.isArray(config.projectList) && config.projectList.length > 0) {
+        var i;
+        var projectRepo, projectUrl, projectLinkDropdown, projectLinkOverview;
 
-/**
- * Merge data from several series, with identical X-axis labels
- * 
- * Parameters :
- * - data : Keen.io query results
- * - indexCaptions : Captions for the index of the values
- * - valueFieldname : name of the value field in the query result array
- * - seriesCaptions : captions for the data series
- */
-function mergeSeries(data, indexCaptions, valueFieldname, seriesCaptions) {
-    chartData = [];
-    // create and populate data array
-    for (i = 0; i < indexCaptions.length; i++) {
-        chartData[i]={caption: indexCaptions[i]};
-        // populate all series
-        for (j = 0; j < seriesCaptions.length; j++) {
-            chartData[i][seriesCaptions[j]] = 0;
-        }
-    }
-    // loop over all query result sets
-    for (j = 0; j < data.length; j++) {
-        timeframeResult = data[j].result;
-        timeframeCaption = seriesCaptions[j];
-        // copy query data into the populated array
-        for (i = 0; i < timeframe_result.length; i++) {
-            index = parseInt(timeframeResult[i][valueFieldname], 10);
-            chartData[index][timeframeCaption] = timeframeResult[i].result;
-        }
-    }
+        for (i = 0; i < config.projectList.length; i++) {
+            projectRepo = htmlEntities(config.projectList[i]);
+            projectUrl = "/dashboard/" + projectRepo;
 
-    return chartData;
+            // add project link to dropdown menu
+            projectLinkDropdown = '<li><a href="' + projectUrl + '">' +
+                projectRepo + '</a></li>';
+            $("#projects.dropdown ul").append(projectLinkDropdown);
+
+            // add project link to project overview
+            projectLinkOverview = '<li class="list-group-item">' +
+                '<h4 class="list-group-item-heading">' + projectRepo + '</h4>' +
+                '<a role="button" class="btn-sm btn-primary" href="' +
+                projectUrl + '">Dashboard</a></li>';
+            $("#project-overview").append(projectLinkOverview);
+        }
+
+        // show projects dropdown menu
+        $("#projects.dropdown").show();
+    } else {
+        // hide projects dropdown menu
+        $("#projects.dropdown").hide();
+    }
 }
 
 // initialize page
@@ -561,5 +606,6 @@ $(document).ready(function() {
     updateTitle();
     initLinks();
     updateBadgeUrl();
+    populateProjects();
     initCharts();
 });

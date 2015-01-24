@@ -1,11 +1,2 @@
-var keenConfig = {
-    projectId: "53416589ce5e433082000002",
-    readKey: "1aca18bb36b4bde1d919e9c0f54c0888adacb385846b2b3c1a01103de86857acd98d06875ce852cf78542fb76a68034285f9fa68d11934473c08426632542a92d57687096d42d1d301a9908021ea9736cf8e74e70d209fb10287f30c7ca2f89c1369b91bf51b3c700eff771844c3048f7deea860b17a3f0fe94c8458ae41ed0f448b3e5e13b26d24fda578a9c8f36ab5246cd4b02c61915ef6efd7d3239adb652b53aca33aca6fe2e2735e1622587d26"
-};
-
-var config = {
-    projectName: "buildtimetrend/python-client", // descriptive project name (used in the title)
-    repoName: "buildtimetrend/python-client", // repo name, fe. "buildtimetrend/python-client"
-    serviceUrl: "service_url", // url to Buildtime Trend as a Service, fe. https://buildtimetrend-service.herokuapp.com/
-    websiteUrl: "website_url" // url to project website
-};
+var config = {'projectList': [], 'projectName': 'buildtimetrend/python-client', 'repoName': 'buildtimetrend/python-client'};
+var keenConfig = {'projectId': '53416589ce5e433082000002', 'readKey': '9970bb841e7a25c19aa265c84ddc7b5dbeb563f654ea0df9dd1b6b166e6283546dd566103972456467423a8519f84c55762ee3ad4b53a69950cb540f5051eb80de2db6467c772c75adbeafc7c9ca35e70a473b9809725b46ba8ebe8773c3ee1b3852202b29898abe60589772f0bdbb3451643bb2e66c11349067f5b6053d97f5a2e29717d9610724f8b5d164eabcee5111a5b3d5ee3273b5a4d4c27badd6c9a8a842bbeb7bceaa0a0cba5c6998a5d29b'};
