@@ -102,7 +102,6 @@ if [ "$TRAVIS" == "true" ] && [ "$BUILD_TREND_INIT" == "1" ]; then
   BUILD_TREND_ASSETS=$GH_PAGES_BUILD_TREND_DIR/.
   BUILD_TREND_ORIGIN_ASSETS=$BUILD_TREND_DASHBOARD_DIR/assets
   export BUILD_TREND_CONFIGFILE=$GH_PAGES_BUILD_TREND_DIR/config.js
-  export BUILD_TREND_SAMPLE_CONFIGFILE=$BUILD_TREND_DASHBOARD_DIR/config_sample.js
 
   # perform analysis
   analyse.py --mode="$mode" --log="$logLevel"
