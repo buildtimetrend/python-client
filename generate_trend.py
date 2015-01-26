@@ -66,8 +66,8 @@ def trend_native():
     if trend.gather_data(result_file):
         logger = get_logger()
         # log number of builds and list of buildnames
-        logger.info('Builds (%d) : %s', len(trend.builds), trend.builds)
-        logger.info('Stages (%d) : %s', len(trend.stages), trend.stages)
+        logger.debug('Builds (%d) : %s', len(trend.builds), trend.builds)
+        logger.debug('Stages (%d) : %s', len(trend.stages), trend.stages)
         trend.generate(chart_file)
 
 
