@@ -116,14 +116,19 @@ function getUpdatePeriod(period) {
     };
 }
 
-// Initialize badge url
-function updateBadgeUrl(periodName) {
+// Get badge url
+function getBadgeUrl() {
     // check if config.serviceUrl is set by something else than the default value
     if (isEmpty(config.serviceUrl) || config.serviceUrl === 'service_url') {
         config.serviceUrl = 'https://buildtimetrend-service.herokuapp.com/';
     }
 
-    var badgeUrl = config.serviceUrl + '/badge/';
+    return config.serviceUrl + '/badge/';
+}
+
+// Initialize badge url
+function updateBadgeUrl(periodName) {
+    var badgeUrl = getBadgeUrl();
 
     // add repo
     if (!isEmpty(config.repoName) && config.repoName !== 'repo_name') {
@@ -178,8 +183,8 @@ function initCharts() {
     // update interval selection box
     $('#intervals').val(updatePeriod.name);
 
-    // hide timeframe title
-    $('#timeframe_title').hide();
+    // display charts
+    $('#charts').show();
 
     // visualization code goes here
     Keen.ready(function() {
@@ -568,17 +573,30 @@ function initLinks() {
     }
 }
 
+// Display message
+function initMessage() {
+    // add message and display it
+    if (!isEmpty(config.message)) {
+        $("#message").append(htmlEntities(config.message));
+        $("#message").show();
+    } else {
+        // hide message
+        $("#message").hide();
+    }
+}
+
 // Populate project menu
 function populateProjects() {
     // check if config.projectList is defined
     if (!isEmpty(config.projectList) &&
       $.isArray(config.projectList) && config.projectList.length > 0) {
         var i;
-        var projectRepo, projectUrl, projectLinkDropdown, projectLinkOverview;
+        var projectRepo, projectUrl, badgeUrl, projectLinkDropdown, projectLinkOverview;
 
         for (i = 0; i < config.projectList.length; i++) {
             projectRepo = htmlEntities(config.projectList[i]);
             projectUrl = "/dashboard/" + projectRepo;
+            badgeUrl = getBadgeUrl() + projectRepo;
 
             // add project link to dropdown menu
             projectLinkDropdown = '<li><a href="' + projectUrl + '">' +
@@ -588,8 +606,15 @@ function populateProjects() {
             // add project link to project overview
             projectLinkOverview = '<li class="list-group-item">' +
                 '<h4 class="list-group-item-heading">' + projectRepo + '</h4>' +
-                '<a role="button" class="btn-sm btn-primary" href="' +
-                projectUrl + '">Dashboard</a></li>';
+                '<a role="button" class="btn btn-primary" href="' +
+                projectUrl + '">Dashboard</a>' +
+                ' <a href="' + projectUrl + '"><img id="badge-url" src="' +
+                    badgeUrl + '/latest" alt="Latest Buildtime" /></a>' +
+                ' <a href="' + projectUrl + '"><img id="badge-url" src="' +
+                    badgeUrl + '/builds" alt="Total Builds" /></a>' +
+                ' <a href="' + projectUrl + '"><img id="badge-url" src="' +
+                    badgeUrl + '/passed" alt="Successful builds" /></a>' +
+                '</li>';
             $("#project-overview").append(projectLinkOverview);
         }
 
@@ -605,7 +630,11 @@ function populateProjects() {
 $(document).ready(function() {
     updateTitle();
     initLinks();
+    initMessage();
     updateBadgeUrl();
     populateProjects();
-    initCharts();
+    if (!isEmpty(config.repoName) &&
+      !isEmpty(keenConfig.projectId) && !isEmpty(keenConfig.readKey)) {
+        initCharts();
+    }
 });
