@@ -10,9 +10,9 @@ Visualise what's trending in your build process
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/buildtimetrend/python-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/buildtimetrend/python-client/?branch=master)
 [![Codacy Badge](https://www.codacy.com/project/badge/b392eb72c5044ea6a4ce40e0eaa6c518)](https://www.codacy.com/public/ruleant/python-client)
 
-[![Buildtime trend](https://buildtimetrend-service.herokuapp.com/badge/buildtimetrend/python-client/latest)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
-[![Total builds](https://buildtimetrend-service.herokuapp.com/badge/buildtimetrend/python-client/builds/month)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
-[![Percentage passed build jobs](https://buildtimetrend-service.herokuapp.com/badge/buildtimetrend/python-client/passed/month)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
+[![Buildtime trend](https://buildtimetrend-dev.herokuapp.com/badge/buildtimetrend/python-client/latest)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
+[![Total builds](https://buildtimetrend-dev.herokuapp.com/badge/buildtimetrend/python-client/builds/month)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
+[![Percentage passed build jobs](https://buildtimetrend-dev.herokuapp.com/badge/buildtimetrend/python-client/passed/month)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
 
 [![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg)](http://stackshare.io/ruleant/buildtime-trend)
 
