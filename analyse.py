@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # vim: set expandtab sw=4 ts=4:
-'''
+"""
 Reads timestamps.csv, calculates stage duration and saves the result
 to an xml file or sends it to Keen.io, depending on the mode.
 
@@ -32,7 +32,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
-'''
+"""
 
 import os
 import sys
@@ -52,9 +52,9 @@ BUILD_TREND_INIT = os.getenv('BUILD_TREND_INIT', '0')
 
 
 def analyse(argv, timestamp):
-    '''
+    """
     Analyse timestamp file
-    '''
+    """
     settings = Settings()
 
     # load settings from config file, env_var and cli parameters
@@ -87,7 +87,7 @@ def analyse(argv, timestamp):
 
 
 def log_build_native(build):
-    '''Store build data in xml format'''
+    """Store build data in xml format"""
     # import dependency
     from lxml import etree
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # vim: set expandtab sw=4 ts=4:
-'''
+"""
 Generate a read key for Keen.io API
 
 Usage : get_read_key.py [project_name]
@@ -26,7 +26,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
-'''
+"""
 
 from buildtimetrend.keenio import keen_io_generate_read_key
 from buildtimetrend.settings import Settings
@@ -34,9 +34,9 @@ import sys
 
 
 def get_read_key(argv):
-    '''
+    """
     Generate a read key for the project and print that key
-    '''
+    """
     settings = Settings()
 
     # load settings from config file, env_var and cli parameters

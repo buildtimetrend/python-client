@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # vim: set expandtab sw=4 ts=4:
-'''
+"""
 Retrieve Travis CI build data and log to Keen.io
 
 Copyright (C) 2014-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
@@ -20,7 +20,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
-'''
+"""
 
 import sys
 from buildtimetrend.travis import TravisData
@@ -30,9 +30,9 @@ from buildtimetrend.keenio import keen_is_writable
 
 
 def retrieve_and_store_data(argv):
-    '''
+    """
     Retrieve timing data from Travis CI, parse it and store it in Keen.io
-    '''
+    """
     settings = Settings()
 
     # load settings from config file, env_var and cli parameters
