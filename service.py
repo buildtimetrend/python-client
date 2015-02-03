@@ -28,12 +28,15 @@ from buildtimetrend.settings import Settings
 from buildtimetrend.keenio import log_build_keen
 from buildtimetrend.keenio import keen_is_writable
 
+CLIENT_NAME = "buildtimetrend/python-client service.py"
+CLIENT_VERSION = "0.2.dev"
 
 def retrieve_and_store_data(argv):
     """
     Retrieve timing data from Travis CI, parse it and store it in Keen.io
     """
     settings = Settings()
+    settings.set_client(CLIENT_NAME, CLIENT_VERSION)
 
     # load settings from config file, env_var and cli parameters
     if settings.load_settings(argv, "config_service.yml") is None:
