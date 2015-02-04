@@ -32,9 +32,7 @@ CLIENT_NAME = "buildtimetrend/python-client service.py"
 CLIENT_VERSION = "0.2.dev"
 
 def retrieve_and_store_data(argv):
-    """
-    Retrieve timing data from Travis CI, parse it and store it in Keen.io
-    """
+    """ Retrieve timing data from Travis CI, parse it and store it in Keen.io. """
     settings = Settings()
     settings.set_client(CLIENT_NAME, CLIENT_VERSION)
 
