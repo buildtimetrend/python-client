@@ -34,9 +34,7 @@ import sys
 
 
 def get_read_key(argv):
-    """
-    Generate a read key for the project and print that key
-    """
+    """ Generate a read key for the project and print that key. """
     settings = Settings()
 
     # load settings from config file, env_var and cli parameters
