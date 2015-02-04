@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # vim: set expandtab sw=4 ts=4:
 """
-Reads timestamps.csv, calculates stage duration and saves the result
-to an xml file or sends it to Keen.io, depending on the mode.
+Analyse buildtime data.
+
+Read timestamps.csv, calculates stage duration and saves the result
+to an xml file (native mode) or sends it to Keen.io (keen mode).
 
 Usage :
   analyse.py -h
