@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # vim: set expandtab sw=4 ts=4:
 """
-Retrieve Travis CI build data and log to Keen.io
+Retrieve Travis CI build data and log to Keen.io.
 
 Copyright (C) 2014-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
 
@@ -32,7 +32,14 @@ CLIENT_NAME = "buildtimetrend/python-client service.py"
 CLIENT_VERSION = "0.2.dev"
 
 def retrieve_and_store_data(argv):
-    """ Retrieve timing data from Travis CI, parse it and store it in Keen.io. """
+    """
+    Load timing and build data, process and store it.
+    
+    Retrieve timing and build data from Travis CI log, parse it
+    and store the result in Keen.io.
+    Parameters:
+    - argv : command line parameters
+    """
     settings = Settings()
     settings.set_client(CLIENT_NAME, CLIENT_VERSION)
 
