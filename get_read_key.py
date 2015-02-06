@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # vim: set expandtab sw=4 ts=4:
 """
-Generate a read key for Keen.io API
+Generate a read key for Keen.io API.
 
 Usage : get_read_key.py [project_name]
 

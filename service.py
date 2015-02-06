@@ -34,7 +34,7 @@ CLIENT_VERSION = "0.2.dev"
 def retrieve_and_store_data(argv):
     """
     Load timing and build data, process and store it.
-    
+
     Retrieve timing and build data from Travis CI log, parse it
     and store the result in Keen.io.
     Parameters:

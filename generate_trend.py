@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # vim: set expandtab sw=4 ts=4:
 """
-Generates a trend (graph) from the buildtimes in buildtimes.xml
+Generates a trend charts from analysed timing data.
 
 Usage : generate_trend.py -h --mode=native,keen
 
