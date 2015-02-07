@@ -43,7 +43,7 @@ from buildtimetrend.settings import Settings
 from buildtimetrend.build import Build
 from buildtimetrend.travis import TravisData
 from buildtimetrend.travis import load_travis_env_vars
-from buildtimetrend.keenio import log_build_keen
+from buildtimetrend.keenio import send_build_data
 from buildtimetrend.tools import check_file
 from buildtimetrend.tools import get_logger
 
@@ -87,7 +87,7 @@ def analyse(argv, timestamp):
     if settings.get_setting("mode_native") is True:
         log_build_native(build)
     if settings.get_setting("mode_keen") is True:
-        log_build_keen(build)
+        send_build_data(build)
 
 
 def log_build_native(build):

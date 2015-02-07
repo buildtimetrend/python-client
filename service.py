@@ -25,7 +25,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 import sys
 from buildtimetrend.travis import TravisData
 from buildtimetrend.settings import Settings
-from buildtimetrend.keenio import log_build_keen
+from buildtimetrend.keenio import send_build_data_service
 from buildtimetrend.keenio import keen_is_writable
 
 CLIENT_NAME = "buildtimetrend/python-client service.py"
@@ -69,7 +69,7 @@ def retrieve_and_store_data(argv):
     # send build job data to Keen.io
     for build_job in travis_data.build_jobs:
         print "Send build job #%s data to Keen.io" % build_job
-        log_build_keen(travis_data.build_jobs[build_job])
+        send_build_data_service(travis_data.build_jobs[build_job])
 
 if __name__ == "__main__":
     retrieve_and_store_data(sys.argv)

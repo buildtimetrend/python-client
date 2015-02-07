@@ -23,6 +23,7 @@ v0.2 (not yet released)
 - issue #33 : Add nanoseconds when logging a timestamp
 - issue #17 : add parameterized (repo name, interval) build status badge to dashboard
 - issue #18 : link to project website and project repo on dashboard
+- schema change : save build job data in build_jobs.job (was builds.build)
 
 v0.1.2 (released on 6Aug2014)
 - improve Travis CI example : pull released version from git
