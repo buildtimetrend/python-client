@@ -4,12 +4,11 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Buildtime trend : Gather data, analyse and visualise trends of build processes on Continuous Integration platforms">
+    <meta name="description" content="Buildtime Trend : Visualise what&#39;s trending in your build process">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
-    <title>Buildtime Trend client</title>
+    <title>Buildtime Trend</title>
   </head>
 
   <body>
@@ -19,13 +18,12 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/buildtimetrend/python-client">View on GitHub</a>
 
-          <a href="https://buildtimetrend.github.io/"><img id="project_logo" src="images/logo.png" width="100px" alt="Buildtime Trend logo" /></a>
-          <h1 id="project_title">Buildtime Trend client</h1>
-          <h2 id="project_tagline">Visualise what's trending in your build process</h2>
+          <h1 id="project_title">Buildtime Trend</h1>
+          <h2 id="project_tagline">Visualise what&#39;s trending in your build process</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/ruleant/buildtime-trend/archive/v0.1.2.zip">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/ruleant/buildtime-trend/archive/v0.1.2.tar.gz">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/buildtimetrend/python-client/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/buildtimetrend/python-client/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -33,20 +31,21 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p><a href="https://github.com/ruleant/buildtime-trend/releases/latest"><img src="http://img.shields.io/badge/release-v0.1.2-blue.svg" alt="Buildtime trend"></a>
-<a href="https://github.com/ruleant/buildtime-trend/tarball/master"><img src="http://img.shields.io/badge/dev-v0.2--dev-blue.svg" alt="Buildtime trend"></a></p>
+        <h1>
+<a id="buildtime-trend-python-client" class="anchor" href="#buildtime-trend-python-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buildtime Trend Python Client</h1>
 
-<h2>
-<a id="example-of-build-stages-trend" class="anchor" href="#example-of-build-stages-trend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example of build stages trend</h2>
+<p>Visualise what's trending in your build process</p>
 
-<p><a href="http://buildtimetrend.github.io/python-client/buildtime-trend/"><img src="http://buildtimetrend.github.io/python-client/images/screenshot_buildtimetrend.png" alt="Graphs generated with Keen.io API"></a>
-Click the image for recently generated trends.</p>
+<p><a href="https://github.com/buildtimetrend/python-client/releases/latest"><img src="http://img.shields.io/badge/release-v0.2-blue.svg" alt="Buildtime trend"></a>
+<a href="https://github.com/buildtimetrend/python-client/zipball/master"><img src="http://img.shields.io/badge/dev-v0.3.dev-blue.svg" alt="Buildtime trend"></a></p>
 
 <h2>
 <a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
 
+<p>Visualise trends of build processes on Continuous Integration platforms by gathering and analysing build and timing data: </p>
+
 <ul>
-<li>Get timing data from each stage in a build process</li>
+<li>Capture timing data from each stage in a build process</li>
 <li>Store, analyse and create trends of the build process data
 
 <ul>
@@ -54,14 +53,14 @@ Click the image for recently generated trends.</p>
 <li>native mode : store data in xml format and use matplotlib to generate a chart (limited)</li>
 </ul>
 </li>
-<li>Current charts and trends
+<li>Available charts and metrics :
 
 <ul>
 <li>number of builds, successful and failed</li>
 <li>average build duration</li>
-<li>chart with build stage durations</li>
+<li>duration of individual build stages</li>
 <li>builds per branch</li>
-<li>different time periods can be selected</li>
+<li>build duration per time of day/day of week</li>
 </ul>
 </li>
 </ul>
@@ -69,16 +68,16 @@ Click the image for recently generated trends.</p>
 <h2>
 <a id="how-to-get-it" class="anchor" href="#how-to-get-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to get it?</h2>
 
-<p>The <a href="https://github.com/ruleant/buildtime-trend/releases/latest">latest version</a> is available for download as zip and tarball on GitHub. Unzip and copy to the desired directory.</p>
+<p>The <a href="https://github.com/buildtimetrend/python-client/releases/latest">latest version</a> is available for download as zip and tarball on GitHub. Unzip and copy to the desired directory.</p>
 
 <p>If you prefer to use git, several options are available :</p>
 
 <ul>
 <li>development version : <code>git clone https://github.com/buildtimetrend/python-client.git</code>
 </li>
-<li>latest release : <code>git clone https://github.com/ruleant/buildtime-trend.git --branch release</code>
+<li>latest release : <code>git clone https://github.com/buildtimetrend/python-client.git --branch release</code>
 </li>
-<li>a specific release : <code>git clone https://github.com/ruleant/buildtime-trend.git --branch v0.1.2</code>
+<li>a specific release : <code>git clone https://github.com/buildtimetrend/python-client.git --branch v0.2</code>
 </li>
 </ul>
 
@@ -86,9 +85,9 @@ Click the image for recently generated trends.</p>
 <a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
 
 <ul>
-<li>keen (client for storing build time data as events in Keen.io)</li>
-<li>lxml (python wrapper for libxml2 and libxslt)</li>
-<li>matplotlib v1.2.0 or higher (for drawing the <code>native</code> trend graph, can be omitted when only using Keen.io to generate charts. Stackplot requires version v1.2.0)</li>
+<li>
+<code>buildtimetrend</code> : <a href="https://github.com/buildtimetrend/python-lib">Buildtime Trend library</a>
+</li>
 </ul>
 
 <h3>
@@ -105,23 +104,6 @@ Click the image for recently generated trends.</p>
 </ul>
 
 <p><code>pip install -r requirements-native.txt</code></p>
-
-<ul>
-<li>install each dependency individually :</li>
-</ul>
-
-<pre><code>pip install keen
-pip install lxml
-pip install 'matplotlib&gt;=1.2.0'
-</code></pre>
-
-<ul>
-<li>install as a Debian package :</li>
-</ul>
-
-<p><code>apt-get install python-lxml</code></p>
-
-<p>Keen.io client is not available as a Debian package, so look at the <code>pip</code> instructions above</p>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -144,15 +126,13 @@ Repeat this step as much as needed.</p>
 
 <p>When all build stages are finished, run</p>
 
-<p><code>timestamp.sh end</code> (optional, <code>analyse.sh</code> adds it automatically)</p>
-
-<p>followed by</p>
-
-<p><code>analyse.sh</code></p>
+<p><code>analyse.py</code></p>
 
 <p>which will analyse the logfile with timestamps and print out the results.
-The <code>analyse.sh</code> script will calculate the duration between the timestamps and add those to a file with the analysed data of previous builds.
-When the analysis script encounters the <code>end</code> timestamp, it will stop analysing the timestamp file.</p>
+The <code>analyse.py</code> script will calculate the duration between the timestamps and add those to a file with the analysed data of previous builds.
+When the analysis script encounters the <code>end</code> timestamp, it will stop analysing the timestamp file and return the duration of the build stages. Possible event names ending the analysis are : <code>end</code>, <code>done</code>, <code>finished</code> or <code>completed</code>.</p>
+
+<p>Optionally <code>timestamp.sh end</code> can be run before <code>analyse.py</code>, but <code>analyse.py</code> adds the end timestamp automatically. The <code>end</code> timestamp can be useful if <code>analyse.py</code> is not immediately run after the monitored build process finishes.</p>
 
 <p>When Keen.io is enabled, the data will be sent to your Keen.io project for analysis.</p>
 
@@ -174,19 +154,19 @@ If Keen.io is enabled, <code>generate_trend.py</code> can be run without paramet
 
 <p>(It is recommended to use Keen.io to store data and generate trends, see below)</p>
 
-<p>To store data in xml, native mode needs to be enabled. The xml file is stored in <code>trends/buildtimes.xml</code> by default.</p>
+<p>To store data in xml, native mode needs to be enabled. The xml file is stored in <code>dashboard/buildtimes.xml</code> by default.</p>
 
 <p>To analyse timestamps and store the analysed data :</p>
 
-<p><code>analyse.sh -m native</code></p>
+<p><code>analyse.py --mode=native</code></p>
 
-<p>See wiki for <a href="https://github.com/ruleant/buildtime-trend/wiki/Structure#data-file-in-native-mode">data schema of the xml file</a>.</p>
+<p>See wiki for <a href="https://github.com/buildtimetrend/python-lib/wiki/Structure#data-file-in-native-mode">data schema of the xml file</a>.</p>
 
 <p>To generate a chart from the data stored in the xml file :</p>
 
 <p><code>generate_trend.py --mode=native</code></p>
 
-<p>This will save a trend image in <code>trends/trend.png</code></p>
+<p>This will save a trend image in <code>dashboard/trend.png</code></p>
 
 <h2>
 <a id="store-build-time-data-in-keenio" class="anchor" href="#store-build-time-data-in-keenio" aria-hidden="true"><span class="octicon octicon-link"></span></a>Store build time data in Keen.io</h2>
@@ -203,34 +183,34 @@ If Keen.io is enabled, <code>generate_trend.py</code> can be run without paramet
 <li>Look up the <code>project ID</code>, <code>Write Key</code> and <code>Master key</code> and assign them to environment variables :</li>
 <li><code>export KEEN_PROJECT_ID=&lt;Project ID&gt;</code></li>
 <li>
-<code>export KEEN_WRITE_KEY=&lt;Write Key&gt;</code> (when running on Travis CI, use , see below)</li>
+<code>export KEEN_WRITE_KEY=&lt;Write Key&gt;</code> (when running on Travis CI, use <code>Master Key</code>, see below)</li>
 <li><code>export KEEN_MASTER_KEY=&lt;Master Key&gt;</code></li>
 </ol>
 
 <p>If these environment variables are set, the scripts will detect this and use Keen.io to store data, do analysis and generate graphs.</p>
 
-<p>See wiki for <a href="https://github.com/ruleant/buildtime-trend/wiki/Structure#data-structures-in-keen-mode">data schema of data sent to Keen.io</a>.</p>
+<p>See wiki for <a href="https://github.com/buildtimetrend/python-lib/wiki/Structure#data-structures-in-keen-mode">data schema of data sent to Keen.io</a>.</p>
 
 <h2>
 <a id="visualise-the-trends-powered-by-keenio" class="anchor" href="#visualise-the-trends-powered-by-keenio" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visualise the trends (powered by Keen.io)</h2>
 
 <p>Multiple trends are available when data was stored in <code>keen</code> mode :</p>
 
-<p>Folder <code>trends</code> contains all files necessary to display the generated trends.</p>
+<p>Folder <code>dashboard</code> contains all files necessary to display the generated trends.</p>
 
 <ul>
-<li>Copy folder <code>trends</code> to the desired location</li>
+<li>Copy folder <code>dashboard</code> to the desired location</li>
 <li>Rename (or copy) <code>config_sample.js</code> to <code>config.js</code>
 </li>
 <li>Edit <code>config.js</code> :
 
 <ul>
 <li>add <code>keen_project_id</code> (see Keen.io section above)</li>
-<li>add <code>keen_read_key</code> (see Keen.io section above, or generate a scoped read key with <code>get_read_key.py project_name</code> (<code>project_name</code> should be the same as the project_name used to store the data, this is usually the git-repo name, fe. <code>ruleant/buildtime-trend</code>)</li>
+<li>add <code>keen_read_key</code> (see Keen.io section above, or generate a scoped read key with <code>get_read_key.py project_name</code> (<code>project_name</code> should be the same as the project_name used to store the data, this is usually the git-repo name, fe. <code>buildtimetrend/python-client</code>)</li>
 <li>add <code>project_name</code> : repo name is a good default, but it can be custom project name as well, this is only used as title on the webpage. It is not used to collect data.</li>
 </ul>
 </li>
-<li>Browse to <code>trends/index.html</code>, this should display the trends</li>
+<li>Browse to <code>dashboard/index.html</code>, this should display the trends</li>
 </ul>
 
 <p>If you are building a Github repo on Travis CI, and you have <code>gh-pages</code> branch, you can use the script mentioned below to automatically add the right files and create the config file.</p>
@@ -244,7 +224,7 @@ and synchronise it with your gh-pages branch.</p>
 
 <p>All you need is a github repo, a Travis CI account for your repo and a gh-pages branch to publish the results.</p>
 
-<p>You also need to create an encrypted GH_TOKEN to get write access to your repo (publish results on gh-pages branch) :</p>
+<p>You also need to create an encrypted <code>GH_TOKEN</code> to get write access to your repo (publish results on gh-pages branch) :</p>
 
 <ul>
 <li>
@@ -313,24 +293,26 @@ after_script:
 <h2>
 <a id="bugs-and-feature-requests" class="anchor" href="#bugs-and-feature-requests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bugs and feature requests</h2>
 
-<p>Please report bugs and add feature requests in the Github <a href="https://github.com/ruleant/buildtime-trend/issues">issue tracker</a>.</p>
+<p>Please report bugs and add feature requests in the Github <a href="https://github.com/buildtimetrend/python-lib/issues">issue tracker</a>.</p>
 
 <h2>
 <a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
 
-<p>For an overview of who contributed to create Buildtime trend, see <a href="https://github.com/ruleant/buildtime-trend/wiki/Credits">Credits</a>.</p>
+<p>For an overview of who contributed to create Buildtime trend, see <a href="https://github.com/buildtimetrend/python-lib/wiki/Credits">Credits</a>.</p>
 
 <h2>
 <a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h2>
 
-<p>Follow us on <a href="https://twitter.com/buildtime_trend">Twitter</a>, <a href="https://github.com/ruleant/buildtime-trend">Github</a> and <a href="https://www.openhub.net/p/buildtime-trend">OpenHub</a>.</p>
+<p>Mailinglist : <a href="https://groups.google.com/d/forum/buildtimetrend-dev">Buildtime Trend Community</a></p>
+
+<p>Follow us on <a href="https://twitter.com/buildtime_trend">Twitter</a>, <a href="https://github.com/buildtimetrend/python-client">Github</a> and <a href="https://www.openhub.net/p/buildtime-trend">OpenHub</a>.</p>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Buildtime trend maintained by <a href="https://github.com/ruleant">ruleant</a></p>
+        <p class="copyright">Buildtime Trend maintained by <a href="https://github.com/buildtimetrend">buildtimetrend</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
