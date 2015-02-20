@@ -42,7 +42,7 @@ If you prefer to use git, several options are available :
 
 - development version : `git clone https://github.com/buildtimetrend/python-client.git`
 - latest release : `git clone https://github.com/buildtimetrend/python-client.git --branch release`
-- a specific release : `git clone https://github.com/buildtimetrend/python-client.git --branch v0.1.2`
+- a specific release : `git clone https://github.com/buildtimetrend/python-client.git --branch v0.2`
 
 Dependencies
 ------------
