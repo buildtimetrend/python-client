@@ -270,7 +270,7 @@ before_install:
   # install and initialise build-trend scripts
   # uncomment one of two options below (stable or development)
   # download latest stable release
-  - git clone --recursive --depth 1 --branch v0.2 https://github.com/buildtimetrend/python-client.git $HOME/buildtime-trend
+  - git clone --recursive --depth 1 --branch release https://github.com/buildtimetrend/python-client.git $HOME/buildtime-trend
   # use latest development version (clone git repo)
   # - if [[ -d $HOME/buildtime-trend/.git ]]; then cd $HOME/buildtime-trend; git pull; cd ..; else git clone --recursive https://github.com/buildtimetrend/python-client.git $HOME/buildtime-trend; fi
   # initialise buildtime-trend scripts
