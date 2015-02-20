@@ -3,7 +3,7 @@ Buildtime Trend Python Client
 
 Visualise what's trending in your build process
 
-[![Buildtime trend](http://img.shields.io/badge/release-v0.2-blue.svg)](https://github.com/buildtimetrend/python-client/releases/latest)
+[![Buildtime trend](http://img.shields.io/badge/release-v0.2.1-blue.svg)](https://github.com/buildtimetrend/python-client/releases/latest)
 [![Buildtime trend](http://img.shields.io/badge/dev-v0.3.dev-blue.svg)](https://github.com/buildtimetrend/python-client/zipball/master)
 [![Build Status](https://travis-ci.org/buildtimetrend/python-client.svg)](https://travis-ci.org/buildtimetrend/python-client)
 [![Code Health](https://landscape.io/github/buildtimetrend/python-client/master/landscape.png)](https://landscape.io/github/buildtimetrend/python-client/master)
@@ -42,7 +42,7 @@ If you prefer to use git, several options are available :
 
 - development version : `git clone --recursive https://github.com/buildtimetrend/python-client.git`
 - latest release : `git clone --recursive https://github.com/buildtimetrend/python-client.git --branch release`
-- a specific release : `git clone --recursive https://github.com/buildtimetrend/python-client.git --branch v0.2`
+- a specific release : `git clone --recursive https://github.com/buildtimetrend/python-client.git --branch v0.2.1`
 
 Dependencies
 ------------
