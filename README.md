@@ -40,9 +40,9 @@ The [latest version](https://github.com/buildtimetrend/python-client/releases/la
 
 If you prefer to use git, several options are available :
 
-- development version : `git clone https://github.com/buildtimetrend/python-client.git`
-- latest release : `git clone https://github.com/buildtimetrend/python-client.git --branch release`
-- a specific release : `git clone https://github.com/buildtimetrend/python-client.git --branch v0.2`
+- development version : `git clone --recursive https://github.com/buildtimetrend/python-client.git`
+- latest release : `git clone --recursive https://github.com/buildtimetrend/python-client.git --branch release`
+- a specific release : `git clone --recursive https://github.com/buildtimetrend/python-client.git --branch v0.2`
 
 Dependencies
 ------------
@@ -199,9 +199,9 @@ Example `.travis.yml` file :
       # install and initialise build-trend scripts
       # uncomment one of two options below (stable or development)
       # download latest stable release
-      - git clone --depth 1 --branch v0.1.2 https://github.com/ruleant/buildtime-trend.git $HOME/buildtime-trend
+      - git clone --recursive --depth 1 --branch v0.2 https://github.com/ruleant/buildtime-trend.git $HOME/buildtime-trend
       # use latest development version (clone git repo)
-      # - if [[ -d $HOME/buildtime-trend/.git ]]; then cd $HOME/buildtime-trend; git pull; cd ..; else git clone https://github.com/ruleant/buildtime-trend.git $HOME/buildtime-trend; fi
+      # - if [[ -d $HOME/buildtime-trend/.git ]]; then cd $HOME/buildtime-trend; git pull; cd ..; else git clone --recursive https://github.com/buildtimetrend/python-client.git $HOME/buildtime-trend; fi
       # initialise buildtime-trend scripts
       - source $HOME/buildtime-trend/init.sh
     install:
