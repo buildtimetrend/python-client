@@ -48,7 +48,7 @@ from buildtimetrend.tools import check_file
 from buildtimetrend.tools import get_logger
 
 CLIENT_NAME = "buildtimetrend/python-client analyse.py"
-CLIENT_VERSION = "0.2"
+CLIENT_VERSION = "0.3.dev"
 
 # use parameter for timestamps file and check if file exists
 TIMESTAMP_FILE = os.getenv('BUILD_TREND_LOGFILE', 'timestamps.csv')

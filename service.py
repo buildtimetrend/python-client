@@ -29,7 +29,7 @@ from buildtimetrend.keenio import send_build_data_service
 from buildtimetrend.keenio import keen_is_writable
 
 CLIENT_NAME = "buildtimetrend/python-client service.py"
-CLIENT_VERSION = "0.2"
+CLIENT_VERSION = "0.3.dev"
 
 def retrieve_and_store_data(argv):
     """
