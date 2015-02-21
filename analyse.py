@@ -45,7 +45,7 @@ from buildtimetrend.travis import TravisData
 from buildtimetrend.travis import load_travis_env_vars
 from buildtimetrend.keenio import send_build_data
 from buildtimetrend.tools import check_file
-from buildtimetrend.tools import get_logger
+from buildtimetrend import logger
 
 CLIENT_NAME = "buildtimetrend/python-client analyse.py"
 CLIENT_VERSION = "0.3.dev"
@@ -100,7 +100,7 @@ def log_build_native(build):
         try:
             root_xml = etree.parse(RESULT_FILE).getroot()
         except etree.XMLSyntaxError:
-            get_logger().error('XML format invalid : a new file is created,'
+            logger.error('XML format invalid : a new file is created,'
                                ' corrupt file is discarded')
             root_xml = etree.Element("builds")
     else:
@@ -119,7 +119,7 @@ def log_build_native(build):
 if __name__ == "__main__":
     # check if Buildtime trend is initialised
     if BUILD_TREND_INIT is not "1":
-        get_logger().error(
+        logger.error(
             "Buildtime-trend is not initialised, first run 'source init.sh'."
         )
     # only run analysis if timestampfile is present
