@@ -1,4 +1,5 @@
 v0.3 (not yet released)
+- issue #21 : add charts with build job results
 
 v0.2.1 (released on 20Feb2015)
 - improved documentation on cloning repo with submodule
