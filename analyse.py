@@ -57,7 +57,7 @@ BUILD_TREND_INIT = os.getenv('BUILD_TREND_INIT', '0')
 
 
 def analyse(argv, timestamp):
-    """ Analyse timestamp file. """
+    """Analyse timestamp file."""
     settings = Settings()
     settings.set_client(CLIENT_NAME, CLIENT_VERSION)
 
@@ -91,7 +91,7 @@ def analyse(argv, timestamp):
 
 
 def log_build_native(build):
-    """ Store build data in xml format. """
+    """Store build data in xml format."""
     # import dependency
     from lxml import etree
 
