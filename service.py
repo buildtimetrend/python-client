@@ -57,7 +57,7 @@ def retrieve_and_store_data(argv):
     # retrieve build data using Travis CI API
     print "Retrieve build #%s data of %s from Travis CI" % \
         (build, settings.get_project_name())
-    travis_data.get_build_data()
+    travis_data.get_builds_data()
 
     # process all build jobs
     travis_data.process_build_jobs()
