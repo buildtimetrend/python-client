@@ -31,6 +31,14 @@ var CAPTION_LAST_YEAR = "Last year";
 
 var TIMEZONE_SECS = "UTC"; // named timezone or offset in seconds, fe. GMT+1 = 3600
 
+// use Keen JS API default colors :
+// https://github.com/keen/keen-js/blob/master/src/dataviz/dataviz.js#L48
+var GREEN = '#73d483';
+var RED = '#fe6672';
+var YELLOW = '#eeb058';
+var BLUE = '#5a9eed';
+var LAVENDER = '#c879bb';
+
 // Timeframe button constants
 var BUTTON_TIMEFRAME_PREFIX = "timeframe_";
 var BUTTON_TIMEFRAME_DEFAULT = "week";
@@ -68,12 +76,114 @@ var timeframeButtons = new ButtonClass(
 );
 timeframeButtons.onClick = function() { updateCharts(); };
 
-var filterOptions = [];
-
 // arrays with queries and query request to update
-var queriesInterval = [];
-var queriesTimeframe = [];
-var queryRequests = [];
+var chartsInterval = [];
+var chartsTimeframe = [];
+var chartsUpdate = [];
+
+// filter options definition
+var filterOptions = [];
+/* example, implemented in trends.js
+var filterOptions = [
+    {
+        "selectId": "filter_", // id of html selection box
+        "queryField": "", // keen field to query on
+        "keenEventCollection": "build_jobs", // keen collection
+        "caption": "Build matrix" // title used in selection box
+    }
+];*/
+
+var filterValues = {};
+function updateFilter(parameter, value) {
+    filterValues[parameter] = value;
+
+    var filterList = [];
+
+    $.each(filterValues, function(index, value) {
+        if (!isEmpty(value)) {
+            filterList.push({"property_name": index,"operator":"eq","property_value": value});
+        }
+    });
+
+    // update Filters for all related charts
+    $.each(chartsUpdate, function () {
+        this.updateFilters(filterList);
+    });
+}
+
+function createFilterOptions() {
+    $("#filter_options").html("Filter on : ");
+    $.each(filterOptions, function () {
+        // create new select tag
+        $("#filter_options").append(
+            "<select id='" + this.selectId + "'></select>"
+        );
+
+        // initialise select filter
+        initFilterOptions(this);
+    });
+}
+
+function initFilterOptions(filterParams) {
+    $('#' + filterParams.selectId)
+        .change(function() {
+            updateFilter(filterParams.queryField, this.value);
+        })
+        .append($('<option>', {
+            value : '',
+            text : filterParams.caption
+        }));
+
+    populateFilterOptions(filterParams);
+}
+
+function populateFilterOptions(filterParams) {
+    // get Update Period settings
+    var updatePeriod = getUpdatePeriod();
+
+    var currentVal = $('#' + filterParams.selectId).val();
+    var valFound = false;
+
+    var querySelectUnique = new Keen.Query("select_unique", {
+        eventCollection: filterParams.keenEventCollection,
+        targetProperty: filterParams.queryField,
+        timeframe: updatePeriod.keenTimeframe
+    });
+
+    // Send query
+    client.run(querySelectUnique, function(err, response) {
+        // empty options and add placeholder
+        $('#' + filterParams.selectId)
+            .empty()
+            .append($('<option>', {
+                value : '',
+                text : filterParams.caption
+            }));
+
+        if (!err) {
+            // loop over the possible options
+            $.each(response.result, function (i, item) {
+                if (!valFound && !isEmpty(currentVal) && currentVal === item) {
+                    valFound = true;
+                }
+
+                if (item !== null) {
+                    $('#' + filterParams.selectId).append($('<option>', {
+                        text : item
+                    }));
+                }
+            });
+
+            // set to currently selected value
+            if (valFound) {
+                $('#' + filterParams.selectId).val(currentVal);
+            } else if (! isEmpty(currentVal)) {
+                // trigger change event to reset nonexistent value
+                $('#' + filterParams.selectId).trigger("change");
+            }
+        }
+    });
+}
 
 function getUpdatePeriod() {
     return timeframeButtons.getCurrentButton();
@@ -86,32 +196,30 @@ function updateCharts() {
     // get Update Period settings
     var updatePeriod = getUpdatePeriod();
 
-    var i;
-
     // update all interval based queries
-    for (i = 0; i < queriesInterval.length; i++) {
-        queriesInterval[i].set({interval: updatePeriod.keenInterval});
-    }
+    $.each(chartsInterval, function () {
+        $.each(this.queries, function () {
+            this.set({interval: updatePeriod.keenInterval});
+        });
+    });
 
     // update all timeframe based queries
-    for (i = 0; i < queriesTimeframe.length; i++) {
-        queriesTimeframe[i].set({
-            timeframe: updatePeriod.keenTimeframe,
-            maxAge: updatePeriod.keenMaxAge});
-    }
+    $.each(chartsTimeframe, function () {
+        $.each(this.queries, function () {
+            this.set({
+                timeframe: updatePeriod.keenTimeframe,
+                maxAge: updatePeriod.keenMaxAge});
+        });
+    });
 
     // refresh all updated query requests
-    for (i = 0; i < queryRequests.length; i++) {
-        queryRequests[i].refresh();
-    }
+    $.each(chartsUpdate, function () {
+        this.request.refresh();
+    });
 
     // repopulate filter options
     $.each(filterOptions, function () {
-        populateFilterOptions(
-            this.selectId,
-            this.queryField,
-            this.caption
-        );
+        populateFilterOptions(this);
     });
 }
 
