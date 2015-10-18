@@ -101,7 +101,7 @@ def log_build_native(build):
             root_xml = etree.parse(RESULT_FILE).getroot()
         except etree.XMLSyntaxError:
             logger.error('XML format invalid : a new file is created,'
-                               ' corrupt file is discarded')
+                               ' the corrupt file is discarded')
             root_xml = etree.Element("builds")
     else:
         root_xml = etree.Element("builds")
