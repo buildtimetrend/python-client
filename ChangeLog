@@ -1,6 +1,7 @@
 v0.3 (not yet released)
 - issue #21 : add charts with build job results
 - issue #91 : store pull_request related data
+- issue #23 : load Travis CI build matrix settings from environment variables
 
 v0.2.1 (released on 20Feb2015)
 - improved documentation on cloning repo with submodule
