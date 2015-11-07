@@ -40,7 +40,7 @@ import os
 import sys
 import time
 from buildtimetrend.settings import Settings
-from buildtimetrend.build import Build
+from buildtimetrend.buildjob import BuildJob
 from buildtimetrend.travis import TravisData
 from buildtimetrend.travis import load_travis_env_vars
 from buildtimetrend.keenio import send_build_data
@@ -69,7 +69,7 @@ def analyse(argv, timestamp):
     load_travis_env_vars()
 
     # read build data from timestamp CSV file
-    build = Build(TIMESTAMP_FILE, timestamp)
+    build = BuildJob(TIMESTAMP_FILE, timestamp)
 
     # load build properties from settings
     build.load_properties_from_settings()
