@@ -35,16 +35,16 @@ filterOptions = [
         "caption": "Build matrix"
     },
     {
-        "selectId": "filter_build_result",
+        "selectId": "filter_result",
         "queryField": "job.result",
         "keenEventCollection": "build_jobs",
-        "caption": "Build result"
+        "caption": "Build results"
     },
     {
         "selectId": "filter_build_trigger",
         "queryField": "job.build_trigger",
         "keenEventCollection": "build_jobs",
-        "caption": "Build trigger"
+        "caption": "Build triggers"
     },
     {
         "selectId": "filter_branch",
@@ -159,8 +159,6 @@ function initCharts() {
         // initialise filter option buttons
         createFilterOptions();
 
-        var filterList = getFilterList();
-
         /* Total build jobs */
         var metricTotalBuildJobs = new ChartClass();
 
@@ -169,8 +167,7 @@ function initCharts() {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
-            maxAge: keenMaxAge,
-            filters: filterList
+            maxAge: keenMaxAge
         }));
         chartsTimeframe.push(metricTotalBuildJobs);
 
@@ -213,7 +210,7 @@ function initCharts() {
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             maxAge: keenMaxAge,
-            filters: metricTotalBuildJobsPassed.filters.concat(filterList)
+            filters: metricTotalBuildJobsPassed.filters
         }));
         chartsTimeframe.push(metricTotalBuildJobsPassed);
 
@@ -275,7 +272,7 @@ function initCharts() {
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             maxAge: keenMaxAge,
-            filters: metricTotalBuildJobsFailed.filters.concat(filterList)
+            filters: metricTotalBuildJobsFailed.filters
         }));
         chartsTimeframe.push(metricTotalBuildJobsFailed);
 
@@ -329,8 +326,7 @@ function initCharts() {
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             maxAge: keenMaxAge,
-            targetProperty: "job.duration",
-            filters: filterList
+            targetProperty: "job.duration"
         }));
         chartsTimeframe.push(metricAverageBuildTime);
 
@@ -373,7 +369,7 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "stage.duration",
             groupBy: "stage.name",
-            filters: chartStageDuration.filters.concat(filterList)
+            filters: chartStageDuration.filters
         }));
         chartsTimeframe.push(chartStageDuration);
         chartsInterval.push(chartStageDuration);
@@ -418,7 +414,7 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "stage.duration",
             groupBy: "stage.name",
-            filters: chartStageDuration.filters.concat(filterList)
+            filters: chartStageDuration.filters
         }));
         chartsTimeframe.push(chartStageFraction);
 
@@ -451,8 +447,7 @@ function initCharts() {
             timeframe: keenTimeframe,
             maxAge: keenMaxAge,
             targetProperty: "job.duration",
-            groupBy: "job.build",
-            filters: filterList
+            groupBy: "job.build"
         }));
         chartsTimeframe.push(chartStageDurationBuild);
 
@@ -493,8 +488,7 @@ function initCharts() {
             timeframe: keenTimeframe,
             maxAge: keenMaxAge,
             targetProperty: "job.duration",
-            groupBy: "job.job",
-            filters: filterList
+            groupBy: "job.job"
         }));
         chartsTimeframe.push(chartStageDurationBuildJob);
 
@@ -536,7 +530,6 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.branch",
-            filters: filterList
         }));
         chartsTimeframe.push(chartJobDurationBranch);
 
@@ -586,7 +579,7 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.build_matrix.summary",
-            filters: chartJobDurationBuildMatrix.filters.concat(filterList)
+            filters: chartJobDurationBuildMatrix.filters
         }));
         chartsTimeframe.push(chartJobDurationBuildMatrix);
 
@@ -628,8 +621,7 @@ function initCharts() {
             interval: keenInterval,
             maxAge: keenMaxAge,
             targetProperty: "job.build",
-            groupBy: "job.branch",
-            filters: filterList
+            groupBy: "job.branch"
         }));
         chartsTimeframe.push(chartBuildsPerBranch);
         chartsInterval.push(chartBuildsPerBranch);
@@ -670,8 +662,7 @@ function initCharts() {
             timeframe: keenTimeframe,
             maxAge: keenMaxAge,
             targetProperty: "job.build",
-            groupBy: "job.branch",
-            filters: filterList
+            groupBy: "job.branch"
         }));
         chartsTimeframe.push(chartTotalBuildsBranch);
 
@@ -705,8 +696,7 @@ function initCharts() {
             interval: keenInterval,
             maxAge: keenMaxAge,
             targetProperty: "job.job",
-            groupBy: "job.result",
-            filters: filterList
+            groupBy: "job.result"
         }));
         chartsTimeframe.push(chartJobResult);
         chartsInterval.push(chartJobResult);
@@ -761,7 +751,7 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "job.job",
             groupBy: "job.build_matrix.summary",
-            filters: chartJobResultMatrix.filters.concat(filterList)
+            filters: chartJobResultMatrix.filters
         }));
         chartsTimeframe.push(chartJobResultMatrix);
 
@@ -803,7 +793,7 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.hour_24",
-            filters: chartAvgBuildtimeHour.filters.concat(filterList)
+            filters: chartAvgBuildtimeHour.filters
         }));
         chartAvgBuildtimeHour.queries.push(new Keen.Query("average", {
             eventCollection: "build_jobs",
@@ -812,7 +802,7 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.hour_24",
-            filters: chartAvgBuildtimeHour.filters.concat(filterList)
+            filters: chartAvgBuildtimeHour.filters
         }));
         chartAvgBuildtimeHour.queries.push(new Keen.Query("average", {
             eventCollection: "build_jobs",
@@ -821,7 +811,7 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.hour_24",
-            filters: chartAvgBuildtimeHour.filters.concat(filterList)
+            filters: chartAvgBuildtimeHour.filters
         }));
 
         // create chart
@@ -893,7 +883,7 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.day_of_week",
-            filters: chartAvgBuildtimeWeekDay.filters.concat(filterList)
+            filters: chartAvgBuildtimeWeekDay.filters
         }));
         chartAvgBuildtimeWeekDay.queries.push(new Keen.Query("average", {
             eventCollection: "build_jobs",
@@ -902,7 +892,7 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.day_of_week",
-            filters: chartAvgBuildtimeWeekDay.filters.concat(filterList)
+            filters: chartAvgBuildtimeWeekDay.filters
         }));
         chartAvgBuildtimeWeekDay.queries.push(new Keen.Query("average", {
             eventCollection: "build_jobs",
@@ -911,7 +901,7 @@ function initCharts() {
             maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.day_of_week",
-            filters: chartAvgBuildtimeWeekDay.filters.concat(filterList)
+            filters: chartAvgBuildtimeWeekDay.filters
         }));
 
         // create chart
@@ -953,8 +943,6 @@ function initCharts() {
             }
         });
         chartsUpdate.push(chartAvgBuildtimeWeekDay);
-
-        updateChartFilters();
     });
 }
 
