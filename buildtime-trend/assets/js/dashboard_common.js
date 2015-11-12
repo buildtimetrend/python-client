@@ -94,9 +94,7 @@ var filterOptions = [
 ];*/
 
 var filterValues = {};
-function updateFilter(parameter, value) {
-    filterValues[parameter] = value;
-
+function getFilterList() {
     var filterList = [];
 
     $.each(filterValues, function(index, value) {
@@ -105,10 +103,20 @@ function updateFilter(parameter, value) {
         }
     });
 
+    return filterList;
+}
+
+function updateChartFilters() {
     // update Filters for all related charts
     $.each(chartsUpdate, function () {
-        this.updateFilters(filterList);
+        this.updateFilters(getFilterList());
     });
+}
+
+function updateFilter(parameter, value) {
+    filterValues[parameter] = value;
+
+    updateChartFilters();
 }
 
 function createFilterOptions() {
@@ -134,15 +142,26 @@ function initFilterOptions(filterParams) {
             text : filterParams.caption
         }));
 
-    populateFilterOptions(filterParams, getUrlParameter(filterParams.selectId));
+    var urlParamValue = getUrlParameter(filterParams.selectId);
+
+    if (! isEmpty(urlParamValue)) {
+        $('#' + filterParams.selectId)
+            .append($('<option>', {
+                text : urlParamValue
+            }))
+            .val(urlParamValue);
+            filterValues[filterParams.queryField] = urlParamValue;
+    }
+
+    populateFilterOptions(filterParams, urlParamValue);
 }
 
-function populateFilterOptions(filterParams, newValue) {
+function populateFilterOptions(filterParams, extraValue) {
     // get Update Period settings
     var updatePeriod = getUpdatePeriod();
 
     // use current value if newValue is not defined
-    newValue = defaultValue(newValue, $('#' + filterParams.selectId).val());
+    var currentValue = $('#' + filterParams.selectId).val();
     var valFound = false;
 
     var querySelectUnique = new Keen.Query("select_unique", {
@@ -162,9 +181,14 @@ function populateFilterOptions(filterParams, newValue) {
             }));
 
         if (!err) {
+            var items = response.result;
+            if (! isEmpty(extraValue)) {
+                items.push(extraValue);
+            }
+
             // loop over the possible options
-            $.each(response.result, function (i, item) {
-                if (!valFound && !isEmpty(newValue) && newValue === item) {
+            $.each(items, function (i, item) {
+                if (!valFound && !isEmpty(currentValue) && currentValue === item) {
                     valFound = true;
                 }
 
@@ -177,8 +201,8 @@ function populateFilterOptions(filterParams, newValue) {
 
             // set to currently selected value
             if (valFound) {
-                $('#' + filterParams.selectId).val(newValue);
-            } else if (! isEmpty(newValue)) {
+                $('#' + filterParams.selectId).val(currentValue);
+            } else if (!isEmpty(currentValue)) {
                 // trigger change event to reset nonexistent value
                 $('#' + filterParams.selectId).trigger("change");
             }
