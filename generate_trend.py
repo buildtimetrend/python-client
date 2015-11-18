@@ -26,13 +26,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import os
 import sys
-from buildtimetrend.tools import get_logger
+from buildtimetrend import logger
 from buildtimetrend.settings import Settings
 from buildtimetrend.travis import load_travis_env_vars
 
 
 def generate_trend(argv):
-    """ Generate trends from analysed buildtime data. """
+    """Generate trends from analysed buildtime data."""
     settings = Settings()
 
     # load settings from config file, env_var and cli parameters
@@ -51,7 +51,7 @@ def generate_trend(argv):
 
 
 def trend_native():
-    """ Generate native trend with matplotlib : chart in PNG format. """
+    """Generate native trend with matplotlib : chart in PNG format."""
     from buildtimetrend.trend import Trend
     # use parameter for timestamps file and check if file exists
     result_file = os.getenv('BUILD_TREND_OUTPUTFILE',
@@ -60,7 +60,6 @@ def trend_native():
 
     trend = Trend()
     if trend.gather_data(result_file):
-        logger = get_logger()
         # log number of builds and list of buildnames
         logger.debug('Builds (%d) : %s', len(trend.builds), trend.builds)
         logger.debug('Stages (%d) : %s', len(trend.stages), trend.stages)
@@ -68,7 +67,7 @@ def trend_native():
 
 
 def trend_keen():
-    """ Setup dashboard config. """
+    """Setup dashboard config."""
     from buildtimetrend.keenio import generate_dashboard_config_file
 
     generate_dashboard_config_file(Settings().get_project_name())

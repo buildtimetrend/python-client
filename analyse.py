@@ -40,15 +40,15 @@ import os
 import sys
 import time
 from buildtimetrend.settings import Settings
-from buildtimetrend.build import Build
+from buildtimetrend.buildjob import BuildJob
 from buildtimetrend.travis import TravisData
 from buildtimetrend.travis import load_travis_env_vars
 from buildtimetrend.keenio import send_build_data
 from buildtimetrend.tools import check_file
-from buildtimetrend.tools import get_logger
+from buildtimetrend import logger
 
 CLIENT_NAME = "buildtimetrend/python-client analyse.py"
-CLIENT_VERSION = "0.2"
+CLIENT_VERSION = "0.3"
 
 # use parameter for timestamps file and check if file exists
 TIMESTAMP_FILE = os.getenv('BUILD_TREND_LOGFILE', 'timestamps.csv')
@@ -57,7 +57,7 @@ BUILD_TREND_INIT = os.getenv('BUILD_TREND_INIT', '0')
 
 
 def analyse(argv, timestamp):
-    """ Analyse timestamp file. """
+    """Analyse timestamp file."""
     settings = Settings()
     settings.set_client(CLIENT_NAME, CLIENT_VERSION)
 
@@ -69,7 +69,7 @@ def analyse(argv, timestamp):
     load_travis_env_vars()
 
     # read build data from timestamp CSV file
-    build = Build(TIMESTAMP_FILE, timestamp)
+    build = BuildJob(TIMESTAMP_FILE, timestamp)
 
     # load build properties from settings
     build.load_properties_from_settings()
@@ -91,7 +91,7 @@ def analyse(argv, timestamp):
 
 
 def log_build_native(build):
-    """ Store build data in xml format. """
+    """Store build data in xml format."""
     # import dependency
     from lxml import etree
 
@@ -100,8 +100,8 @@ def log_build_native(build):
         try:
             root_xml = etree.parse(RESULT_FILE).getroot()
         except etree.XMLSyntaxError:
-            get_logger().error('XML format invalid : a new file is created,'
-                               ' corrupt file is discarded')
+            logger.error('XML format invalid : a new file is created,'
+                               ' the corrupt file is discarded')
             root_xml = etree.Element("builds")
     else:
         root_xml = etree.Element("builds")
@@ -119,7 +119,7 @@ def log_build_native(build):
 if __name__ == "__main__":
     # check if Buildtime trend is initialised
     if BUILD_TREND_INIT is not "1":
-        get_logger().error(
+        logger.error(
             "Buildtime-trend is not initialised, first run 'source init.sh'."
         )
     # only run analysis if timestampfile is present

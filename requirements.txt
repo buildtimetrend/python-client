@@ -1,1 +1,1 @@
-buildtimetrend==0.2
+buildtimetrend==0.3

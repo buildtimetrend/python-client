@@ -3,7 +3,7 @@ Buildtime Trend Python Client
 
 Visualise what's trending in your build process
 
-[![Buildtime trend](http://img.shields.io/badge/release-v0.2.1-blue.svg)](https://github.com/buildtimetrend/python-client/releases/latest)
+[![Buildtime trend](http://img.shields.io/badge/release-v0.3-blue.svg)](https://github.com/buildtimetrend/python-client/releases/latest)
 [![Buildtime trend](http://img.shields.io/badge/dev-v0.3.dev-blue.svg)](https://github.com/buildtimetrend/python-client/zipball/master)
 [![Build Status](https://travis-ci.org/buildtimetrend/python-client.svg)](https://travis-ci.org/buildtimetrend/python-client)
 [![Code Health](https://landscape.io/github/buildtimetrend/python-client/master/landscape.png)](https://landscape.io/github/buildtimetrend/python-client/master)
@@ -42,7 +42,7 @@ If you prefer to use git, several options are available :
 
 - development version : `git clone --recursive https://github.com/buildtimetrend/python-client.git`
 - latest release : `git clone --recursive https://github.com/buildtimetrend/python-client.git --branch release`
-- a specific release : `git clone --recursive https://github.com/buildtimetrend/python-client.git --branch v0.2.1`
+- a specific release : `git clone --recursive https://github.com/buildtimetrend/python-client.git --branch v0.3`
 
 Dependencies
 ------------
@@ -227,6 +227,16 @@ Bugs and feature requests
 
 Please report bugs and add feature requests in the Github [issue tracker](https://github.com/buildtimetrend/python-lib/issues).
 
+Contribute
+----------
+
+If you want to contribute to make Buildtime Trend even better, check out the [contribution](https://github.com/buildtimetrend/python-lib/wiki/Contribute) page.
+We are looking for testers, developers, designers, ... and what more. [Contact us](#contact) if you want to help out.
+
+Donations
+---------
+
+You can support the project by making a [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LG9M6QTBS9LKL). The donations will help pay for the hosting and support further development.
 
 Credits
 -------

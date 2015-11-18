@@ -1,1 +1,1 @@
-buildtimetrend[native]==0.2
+buildtimetrend[native]==0.3
