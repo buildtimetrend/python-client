@@ -4,7 +4,7 @@ Buildtime Trend Python Client
 Visualise what's trending in your build process
 
 [![Buildtime trend](http://img.shields.io/badge/release-v0.3-blue.svg)](https://github.com/buildtimetrend/python-client/releases/latest)
-[![Buildtime trend](http://img.shields.io/badge/dev-v0.3.dev-blue.svg)](https://github.com/buildtimetrend/python-client/zipball/master)
+[![Buildtime trend](http://img.shields.io/badge/dev-v0.4.dev-blue.svg)](https://github.com/buildtimetrend/python-client/zipball/master)
 [![Build Status](https://travis-ci.org/buildtimetrend/python-client.svg)](https://travis-ci.org/buildtimetrend/python-client)
 [![Code Health](https://landscape.io/github/buildtimetrend/python-client/master/landscape.png)](https://landscape.io/github/buildtimetrend/python-client/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/buildtimetrend/python-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/buildtimetrend/python-client/?branch=master)
