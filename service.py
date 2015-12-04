@@ -21,6 +21,7 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
+from __future__ import print_function
 
 import sys
 from buildtimetrend.travis import TravisData
@@ -49,26 +50,29 @@ def retrieve_and_store_data(argv):
 
     build = settings.get_setting('build')
     if build is None:
-        print "Build number is not set, use --build=build_id"
+        print("Build number is not set, use --build=build_id")
         return
 
     travis_data = TravisData(settings.get_project_name(), build)
 
     # retrieve build data using Travis CI API
-    print "Retrieve build #%s data of %s from Travis CI" % \
-        (build, settings.get_project_name())
+    print(
+        "Retrieve build #{:s} data of {:s} from Travis CI".format(
+            build, settings.get_project_name()
+        )
+    )
     travis_data.get_build_data()
 
     # process all build jobs
     travis_data.process_build_jobs()
 
     if not keen_is_writable():
-        print "Keen IO write key not set, no data was sent"
+        print("Keen IO write key not set, no data was sent")
         return
 
     # send build job data to Keen.io
     for build_job in travis_data.build_jobs:
-        print "Send build job #%s data to Keen.io" % build_job
+        print("Send build job #{:s} data to Keen.io".format(build_job))
         send_build_data_service(travis_data.build_jobs[build_job])
 
 if __name__ == "__main__":

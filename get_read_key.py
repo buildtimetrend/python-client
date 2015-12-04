@@ -27,6 +27,7 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
+from __future__ import print_function
 
 from buildtimetrend.keenio import keen_io_generate_read_key
 from buildtimetrend.settings import Settings
@@ -49,7 +50,7 @@ def get_read_key(argv):
         settings.set_project_name(args[0])
 
     # generate a read key
-    print keen_io_generate_read_key(settings.get_project_name())
+    print(keen_io_generate_read_key(settings.get_project_name()))
 
 if __name__ == "__main__":
     get_read_key(sys.argv)
