@@ -1,4 +1,5 @@
 v0.4 (not yet released)
+- issue #117 : Support Python 2/3
 
 v0.3 (released on 18Nov2015)
 - issue #21 : add charts with build job results
