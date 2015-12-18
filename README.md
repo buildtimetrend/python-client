@@ -9,6 +9,7 @@ Visualise what's trending in your build process
 [![Code Health](https://landscape.io/github/buildtimetrend/python-client/master/landscape.png)](https://landscape.io/github/buildtimetrend/python-client/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/buildtimetrend/python-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/buildtimetrend/python-client/?branch=master)
 [![Codacy Badge](https://www.codacy.com/project/badge/b392eb72c5044ea6a4ce40e0eaa6c518)](https://www.codacy.com/public/ruleant/python-client)
+[![Code Issues](https://www.quantifiedcode.com/api/v1/project/e44ba62bf09c4649b9103cc4225ae345/badge.svg)](https://www.quantifiedcode.com/app/project/e44ba62bf09c4649b9103cc4225ae345)
 
 [![Buildtime trend](https://buildtimetrend.herokuapp.com/badge/buildtimetrend/python-client/latest)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
 [![Total builds](https://buildtimetrend.herokuapp.com/badge/buildtimetrend/python-client/builds/month)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
