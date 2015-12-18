@@ -46,7 +46,8 @@ def get_read_key(argv):
         return
 
     # get project name from argument
-    if len(args) > 0:
+    # check if collection is empty
+    if args:
         settings.set_project_name(args[0])
 
     # generate a read key
