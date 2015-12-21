@@ -68,9 +68,9 @@ def trend_native():
 
 def trend_keen():
     """Setup dashboard config."""
-    from buildtimetrend.keenio import generate_dashboard_config_file
+    from buildtimetrend.dashboard import generate_config_file
 
-    generate_dashboard_config_file(Settings().get_project_name())
+    generate_config_file(Settings().get_project_name())
 
 if __name__ == "__main__":
     generate_trend(sys.argv)
