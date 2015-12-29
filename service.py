@@ -24,7 +24,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 from __future__ import print_function
 
 import sys
-from buildtimetrend.travis import TravisData
+from buildtimetrend.travis.parser import TravisData
 from buildtimetrend.settings import Settings
 from buildtimetrend.keenio import send_build_data_service
 from buildtimetrend.keenio import keen_is_writable

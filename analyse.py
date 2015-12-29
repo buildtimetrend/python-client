@@ -41,8 +41,8 @@ import sys
 import time
 from buildtimetrend.settings import Settings
 from buildtimetrend.buildjob import BuildJob
-from buildtimetrend.travis import TravisData
-from buildtimetrend.travis import load_travis_env_vars
+from buildtimetrend.travis.parser import TravisData
+from buildtimetrend.travis import env_var
 from buildtimetrend.keenio import send_build_data
 from buildtimetrend.tools import check_file
 from buildtimetrend import logger
@@ -66,7 +66,7 @@ def analyse(argv, timestamp):
         return
 
     # load Travis CI environment variables
-    load_travis_env_vars()
+    env_var.load_all(settings)
 
     # read build data from timestamp CSV file
     build = BuildJob(TIMESTAMP_FILE, timestamp)
