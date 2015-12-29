@@ -69,16 +69,6 @@ function firstCharUpperCase(str) {
     return str.substring(0,1).toUpperCase() + str.substring(1);
 }
 
-/* convert keyed list (hash table) to array (without keys) */
-function removeKeys(keyedList) {
-    var resArray = [];
-    $.each(keyedList, function() {
-        resArray.push(this);
-    });
-
-    return resArray;
-}
-
 // add project name to title
 function updateTitle() {
     var title = 'Buildtime Trend as a Service';
