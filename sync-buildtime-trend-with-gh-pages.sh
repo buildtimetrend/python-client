@@ -9,7 +9,7 @@
 # to update generated javadoc on the Github pages (gh-pages) of a project :
 # https://github.com/treelogic-swe/aws-mock/blob/04746419b409e1689632da53a7ea6063dbe33ef8/.utility/push-javadoc-to-gh-pages.sh
 #
-# Copyright (C) 2014-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+# Copyright (C) 2014-2016 Dieter Adriaenssens <ruleant@users.sourceforge.net>
 #
 # This file is part of buildtimetrend/python-client
 # <https://github.com/buildtimetrend/python-client/>

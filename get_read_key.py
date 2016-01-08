@@ -9,7 +9,7 @@ When argument project_name is used, the read key will be
 generated to access this project.
 If no argument is given, the default project name will be used.
 
-Copyright (C) 2014-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+Copyright (C) 2014-2016 Dieter Adriaenssens <ruleant@users.sourceforge.net>
 
 This file is part of buildtimetrend/python-client
 <https://github.com/buildtimetrend/python-client/>

@@ -5,7 +5,7 @@ Generates a trend charts from analysed timing data.
 
 Usage : generate_trend.py -h --mode=native,keen
 
-Copyright (C) 2014-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+Copyright (C) 2014-2016 Dieter Adriaenssens <ruleant@users.sourceforge.net>
 
 This file is part of buildtimetrend/python-client
 <https://github.com/buildtimetrend/python-client/>
