@@ -14,6 +14,7 @@ Visualise what's trending in your build process
 [![Buildtime trend](https://buildtimetrend.herokuapp.com/badge/buildtimetrend/python-client/latest)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
 [![Total builds](https://buildtimetrend.herokuapp.com/badge/buildtimetrend/python-client/builds/month)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
 [![Percentage passed build jobs](https://buildtimetrend.herokuapp.com/badge/buildtimetrend/python-client/passed/month)](http://buildtimetrend.github.io/python-client/buildtime-trend/)
+[![Days since last failed build job](https://buildtimetrend-dev.herokuapp.com/badge/buildtimetrend/python-client/last_fail)](https://buildtimetrend-dev.herokuapp.com/dashboard/buildtimetrend/python-client/index.html)
 
 [![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg)](http://stackshare.io/ruleant/buildtime-trend)
 
