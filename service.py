@@ -27,7 +27,6 @@ import sys
 from buildtimetrend.travis.parser import TravisData
 from buildtimetrend.settings import Settings
 from buildtimetrend import keenio
-from buildtimetrend.keenio import send_build_data_service
 
 CLIENT_NAME = "buildtimetrend/python-client service.py"
 CLIENT_VERSION = "0.4.dev"
@@ -73,7 +72,7 @@ def retrieve_and_store_data(argv):
     # send build job data to Keen.io
     for build_job in travis_data.build_jobs:
         print("Send build job #{:s} data to Keen.io".format(build_job))
-        send_build_data_service(travis_data.build_jobs[build_job])
+        keenio.send_build_data_service(travis_data.build_jobs[build_job])
 
 if __name__ == "__main__":
     retrieve_and_store_data(sys.argv)
