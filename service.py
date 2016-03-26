@@ -26,8 +26,8 @@ from __future__ import print_function
 import sys
 from buildtimetrend.travis.parser import TravisData
 from buildtimetrend.settings import Settings
+from buildtimetrend import keenio
 from buildtimetrend.keenio import send_build_data_service
-from buildtimetrend.keenio import keen_is_writable
 
 CLIENT_NAME = "buildtimetrend/python-client service.py"
 CLIENT_VERSION = "0.4.dev"
@@ -66,7 +66,7 @@ def retrieve_and_store_data(argv):
     # process all build jobs
     travis_data.process_build_jobs()
 
-    if not keen_is_writable():
+    if not keenio.is_writable():
         print("Keen IO write key not set, no data was sent")
         return
 
